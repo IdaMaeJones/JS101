@@ -1,0 +1,68 @@
+/* sum of two numbers */program
+
+FUNCTION sumNumbers
+INPUT two numbers: a, b
+OUTPUT sum of input numbers: sumNum
+START
+# Given an input of two numbers
+
+SET sumNum = a
+
+sumNum += b
+
+PRINT sumNum
+
+END
+
+/* ==== ==== ==== ==== */
+/* take an array of strings, return   */
+/* a string that is all those strings */
+/* concatenated together
+
+FUNCTION joinStrings
+INPUT array of strings: arrString[]
+OUTPUT concatenated string of strings in input array: resultString
+START
+# Given an input array of strings
+
+SET iterator = 0
+SET resultString = ''
+
+WHILE iterator <= length of arrString[]
+  SET resultString to READ resultString and concatenate value of arrString at
+      space iterator
+  iterator = iterator + 1
+  
+PRINT resultString
+
+
+/* ==== ==== ==== ==== */
+/* take an array of integers, return  */
+/* new array with every other element */
+START    start of the program
+SET    set a variable that we can use for later
+GET    retrieve input from user
+PRINT    display output to user
+READ    retrieve a value from a variable
+IF/ELSE IF/ELSE    show conditional branches in logic
+WHILE    show looping logic
+END    end of the program
+
+FUNCTION everyOther
+INPUT array of integers: arrInts[]
+OUTPUT  array with every other element: resultArray
+START
+# Given an input of two numbers
+
+SET iterator = 0
+SET resultString to empty string
+
+WHILE iterator <= length of arrInts
+  IF iterator is even
+    SET resultArray[] at space iterator/2 to arrInts[] at space iterator
+  ELSE
+    skip
+  iterator += 1
+
+PRINT resultArray
+/* ==== ==== ==== ==== */
