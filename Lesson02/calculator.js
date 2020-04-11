@@ -5,17 +5,42 @@ const readline = require('readline-sync');
 // Perform the operation on the two numbers.
 // Print the result to the terminal.
 
+function prompt (message) {
+    console.log(`=> ${message}`);
+}
+
+function invalidNumber(num) {
+    return num.trimStart() === '' || Number.isNaN(Number(num));
+}
+
 console.log('Welcome to Calculator!');
 
-console.log('What is the first number?');
+prompt('What is the first number?');
 let number1 = readline.question();
+while (invalidNumber(number1)) {
+    prompt(`You entered ${number1}, which is not a number.\n` +
+           `Please enter a valid number.`);
+    number1 = readline.question();
+}
 
-console.log('What is the second number?');
+prompt('What is the second number?');
 let number2 = readline.question();
+while (invalidNumber(number2)) {
+    prompt(`You entered ${number1}, which is not a number.\n` +
+           `Please enter a valid number.`);
+    number2 = readline.question();
+}
 
-console.log('What operation would you like to perform?\n' + 
-            '+  -  *  /  **');
+const operatorArray = ['+', '-', '*', '/', '^'];
+
+prompt('What operation would you like to perform?\n' +
+       '+  -  *  /  ^');
 let operation = readline.question();
+while (operation.trimStart() === '' || !operatorArray.includes(operation)) {
+    prompt(`You entered "${operation}", which is not a valid operator.\n` +
+           `Please enter a valid operator: + - * / ^`);
+    operation = readline.question();
+}
 
 let output;
 /*
@@ -47,8 +72,8 @@ switch (operation) {
         output = Number(number1) ** Number(number2);
         break;
     default:
-        console.log('Please enter one of the following mathematical\n' +
-                    ' +  -  *  / ^')
+        console.log('Please enter one of the following math operators\n' +
+                    ' +  -  *  / ^');
 }
 
 console.log(`The result is: ${output}`);
