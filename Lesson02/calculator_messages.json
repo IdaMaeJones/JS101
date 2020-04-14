@@ -1,0 +1,15 @@
+{"en": {
+    "welcome": "Welcome to Calculator!",
+    "firstNumber": "What is the first number?",
+    "secondNumber": "What is the second number?",
+    "operation": "What operation would you like to perform? +  -  *  /  ^",
+    "continue": "Would you like to perform another calculation?\nType y for yes or n for no."
+    },
+ "es": {
+    "welcome": "Bienvenido a Calculator!",
+    "firstNumber": "What is the first number?",
+    "secondNumber": "What is the second number?",
+    "operation": "What operation would you like to perform? +  -  *  /  ^",
+    "continue": "Would you like to perform another calculation?\nType y for yes or n for no."
+    }
+}
