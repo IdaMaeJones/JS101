@@ -13,7 +13,7 @@ var LANGUAGE = 'en';
    Display Welcome Message
    SET variable to enable second loan payment calculation if user wishes
    DO-WHILE Loop
-   DO (MAIN CALCULATION)
+   DO {
      MAIN CALCULATION
      SET internal variables monthlyPmt, intRatePctMthly, loanTermMths
      SET variable for output
@@ -29,7 +29,8 @@ var LANGUAGE = 'en';
      Build output string
      PRINT output
      Ask if user would like to perform another calculation
-   WHILE (variable to calculate is set)
+   }
+   WHILE (variable to calculate another loan payment is set)
 */
 
 
@@ -47,7 +48,7 @@ let continueArray = ['y', 'Y', 'n', 'N'];
    Output: return true if input is a number, false if not
 */
 function invalidNumber(num) {
-    return num.trimStart() === '' || Number.isNaN(Number(num));
+    return num.trimStart() === '' || Number.isNaN(Number(num)) || (num < 0);
 }
 
 
