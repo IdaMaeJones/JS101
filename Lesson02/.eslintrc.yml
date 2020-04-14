@@ -49,7 +49,7 @@ rules:
       properties: never
   indent:
     - error
-    - 4
+    - 2
     - SwitchCase: 1
   keyword-spacing: error
   linebreak-style: error
