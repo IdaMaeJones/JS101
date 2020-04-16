@@ -5,15 +5,17 @@ var LANGUAGE = 'en';
 /*
    FORMAL PSEUDOCODE
    START
-   Setup helper functions
-     SUBPROCESS check if input is a valid, positive number
-     SUBPROCESS pair message with language
-     SUBPROCESS output message in requested language after appending "=> "
-   GET language to use for user interface
-   SET language to use for user interface
+   SUBPROCESS check if input is a valid number
+     number should be a positive number to be valid
+   SUBPROCESS pair message with language
+   SUBPROCESS output message in requested language after appending "=> "
+   GET language for user interface
+   SET language for user interface
    Display Welcome Message
-   WHILE (true)
-   {
+   SET variable to enable second loan payment calculation if user wishes
+   DO-WHILE Loop
+   DO {
+     (MAIN CALCULATION)
      SET internal variables for monthly payment, monthly interest rate,
          loan term in months: monthlyPmt, intRatePctMthly, loanTermMths
      SET variable for output
@@ -27,15 +29,13 @@ var LANGUAGE = 'en';
        Divide loan term in years by 12 to get loan term in months
          loanTermMths = loanTermYrs * 12;
      READ loanAmt, intRatePctMthly, loanTermMths
-     Main Calculation: calcuate monthly payment using formula
+     Calcuate monthly payment using formula
        let m = p * (j / (1 - Math.pow((1 + j),(-n))));
      Build output string
      PRINT output
-     GET would user would like to perform another calculation
-     IF (no) break ELSE while loop continues
+     Ask if user would like to perform another calculation
    }
-   Display Goodbye Message
-   END
+   WHILE (variable to calculate another loan payment is set)
 */
 
 
@@ -43,7 +43,7 @@ var LANGUAGE = 'en';
 // START
 
 // Array: internal array of valid user inputs //
-let validAnswersArray = ['y', 'Y', 'n', 'N'];
+let continueArray = ['y', 'Y', 'n', 'N'];
 
 
 // SUBPROCESS check if input is a valid number
@@ -66,32 +66,27 @@ function messages(message, lang = 'en') {
 
 // SUBPROCESS output message in requested language after appending "=> "
 // Helper function: prompt //
-// Call function "messages" with input "key" //
-// and relevant language. Log this output //
-// Input: A message 'key' //
-// Output: Log to console correct 'message' from json in  //
-//         language specified and pre-pended by "=> " //
+// Call function "messages" with input "key" and relevant language //
+// Log this output //
+// Input: A message 'key'//
+// Output: Log to console correct 'message' from json in language specified //
+// and pre-pended by "=> " //
 function prompt(key) {
   let message = messages(key, LANGUAGE);
   console.log(`=> ${message}`);
 }
 
 // GET language for user interface
-// Ask in English if another language should be used //
-// Ask same in Spanish //
-// Show valid answer choices in English //
-// Show valid answers in Spanish //
 prompt('language');
 console.log(messages('language', 'es'));
 prompt('valid answers');
 console.log(messages('valid answers', 'es'));
-let answer = readline.question();
-while (answer.trimStart() === '' || !validAnswersArray.includes(answer)) {
+let lang = readline.question();
+while (lang.trimStart() === '' || !continueArray.includes(lang)) {
   prompt('user input');
-  console.log(`${answer}`);
+  console.log(`${lang}`);
   prompt('valid answers');
-  console.log(messages('valid answers', 'es'));
-  answer = readline.question();
+  lang = readline.question();
 }
 
 
@@ -99,8 +94,7 @@ while (answer.trimStart() === '' || !validAnswersArray.includes(answer)) {
 // Once user inputs valid answer for language question
 // if yes, set language to Spanish: LANGUAGE = 'es'
 // if no, set language to English: LANGUAGE = 'en'
-// Using switch to allow future addition of new languages
-switch (answer.toUpperCase()) {
+switch (lang.toUpperCase()) {
   case 'Y':
     LANGUAGE = 'es';
     break;
@@ -114,12 +108,17 @@ switch (answer.toUpperCase()) {
 prompt('welcome');
 
 
+// SET "continueCalc"
+// Variable: internal variable to decide if user wants another calculation //
+let continueCalc = 1;
+
+
 // MAIN MORTGAGE FUNCTION //
 // do-while loop is used to encapsulate the entire calculator code //
 // in case user wants to perform additional calculations //
 // do-while loop ensures that calculation is performed at least once //
 // before while condition is checked //
-while (true) {
+do {
   /* SET internal variables */
   // SET monthlyPmt
   // SET intRatePctMthly
@@ -196,23 +195,34 @@ while (true) {
   console.log(output);
 
 
-  // GET would user like to perform another calculation
-  // if user inputs blank or non-valid answer //
-  // pester them to input a valid answer //
-  // IF (no) break ELSE while loop continues to perform loan calculation
+  // Ask if user would like to perform another calculation //
   prompt('continue');
   let anotherCalc = readline.question();
-  while (anotherCalc.trimStart() === '' || !validAnswersArray.includes(anotherCalc)) {
+
+
+  // if user inputs blank or non-valid answer to continue calculating
+  // pester them to input a valid answer
+  while (anotherCalc.trimStart() === '' || !continueArray.includes(anotherCalc)) {
     prompt('user input');
     console.log(`${anotherCalc}`);
     prompt('valid answers');
     anotherCalc = readline.question();
   }
-  if (anotherCalc.toUpperCase() === 'N') break;
-}
 
-// Display Goodbye Message
+
+  // Once user inputs valid answer
+  // if yes, ensure while condition of the do-while loop is true
+  // if no, set continueCalc to 0 to end do-while loop
+  switch (anotherCalc.toUpperCase()) {
+    case 'Y':
+      continueCalc = 1;
+      break;
+    default:
+      continueCalc = 0;
+      break;
+  }
+} while (continueCalc === 1);
 prompt('adieu');
 
-// END
-/* ==== ==== ==== ==== */
+/* ==== ==== END OF MAIN MORTGAGE CODE ==== ==== */
+/* END */
