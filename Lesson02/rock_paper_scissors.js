@@ -191,7 +191,7 @@ while (true) {
       // console.log("computer wins");
       gameWinner = messages('result computer wins', LANGUAGE);
     }
-  };
+  }
 
 
   // Build output
@@ -199,7 +199,8 @@ while (true) {
   //   READ computer's choice
   //   READ game winner
   // PRINT output
-  // console.log(`You chose ${userChoice}, the computer chose ${computerChoice}.`);
+  // console.log(`You chose ${userChoice}, the computer chose
+  //  {computerChoice}.`);
   prompt('your choice');
   console.log(`${choice}`);
   prompt('computer choice');
