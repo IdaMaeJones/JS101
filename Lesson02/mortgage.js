@@ -115,10 +115,8 @@ prompt('welcome');
 
 
 // MAIN MORTGAGE FUNCTION //
-// do-while loop is used to encapsulate the entire calculator code //
+// while loop is used to encapsulate the entire calculator code //
 // in case user wants to perform additional calculations //
-// do-while loop ensures that calculation is performed at least once //
-// before while condition is checked //
 while (true) {
   /* SET internal variables */
   // SET monthlyPmt
@@ -128,7 +126,7 @@ while (true) {
   let monthlyPmt = 0;
   let intRatePctMthly = 0;
   let loanTermMths = 0;
-  let output = 'Unitialized Output';
+  let output = 'Uninitialized Output';
 
 
   /* GET input data */

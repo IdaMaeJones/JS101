@@ -3,7 +3,6 @@
     "continue": "Would you like to perform another calculation?\nType y for yes or n for no.",
     "enter number": "Please enter a valid number.",
     "interest rate": "Please enter the interest rate APR % for the loan. Do not include % sign.",
-    "valid answers": "Please type y for yes or n for no.",
     "language": "Would you like to use Spanish instead of English?",
     "loan amount": "Please enter the amount borrowed.",
     "loan term": "Please enter the term of the loan in years.",
@@ -12,6 +11,7 @@
     "outputC": " for ",
     "outputD": " months.",
     "user input": "You entered: ",
+    "valid answers": "Please type y for yes or n for no.",
     "welcome": "Welcome to Mortgage Calculator!"
     },
  "es": {
@@ -19,7 +19,6 @@
     "continue": "¿Te gustaría realizar otro cálculo?\nEscriba y para sí o n para no.",
     "enter number": "Por favor ingrese un número valido.",
     "interest rate": "Ingrese la tasa de interés APR% para el préstamo. No incluya el signo %.",
-    "valid answers": "Escriba y para sí o n para no.",
     "language": "¿Te gustaría usar español en lugar de inglés?",
     "loan amount": "Por favor ingrese el monto prestado.",
     "loan term": "Ingrese el plazo del préstamo en años.",
@@ -28,6 +27,7 @@
     "outputC": " para ",
     "outputD": " meses.",
     "user input": "Entraste: ",
-    "welcome": "Bienvenido a la Calculadora de Hipotecas!"
+    "valid answers": "Escriba y para sí o n para no.",
+    "welcome": "¡Bienvenido a la Calculadora de Hipotecas!"
     }
 }

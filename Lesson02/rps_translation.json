@@ -1,0 +1,28 @@
+{"es_to_en": {
+    "lagartija": "lizard",
+    "no": "no",
+    "papel": "paper",
+    "roca": "rock",
+    "tijeras": "scissors",
+    "spock": "spock",
+    "si": "yes"
+    },
+"en_to_es": {
+    "lizard": "lagartija",
+    "no": "no",
+    "paper": "papel",
+    "rock": "roca",
+    "scissors": "tijeras",
+    "spock": "spock",
+    "yes": "si"
+    },
+"en_to_en": {
+    "lizard": "lizard",
+    "no": "no",
+    "paper": "paper",
+    "rock": "rock",
+    "scissors": "scissors",
+    "spock": "spock",
+    "yes": "yes"
+    }
+}

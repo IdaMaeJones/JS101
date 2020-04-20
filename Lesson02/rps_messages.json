@@ -1,0 +1,33 @@
+{"en": {
+    "adieu": "Thank you for playing.",
+    "computer choice": "Computer's choice: ",
+    "continue": "Would you like to play another game?\nType y for yes or n for no.",
+    "enter valid choice": "Please enter a valid choice: rock, paper, scissors, lizard, Spock.",
+    "language": "Choose your language. Enter 1 for English, 2 for Spanish.",
+    "not valid choice": "... is not a valid choice.",
+    "result computer wins": "The computer wins game.",
+    "result tie": "Game is a tie.",
+    "result user wins": "You win the game.",
+    "user input": "You entered: ",
+    "user rps choice": "Please choose one: rock, paper, scissors, lizard, Spock.",
+    "valid answers": "Please type y for yes or n for no.",
+    "welcome": "Welcome to Rock, Paper, Scissors, Lizard, Spock!",
+    "your choice": "Your choice: "
+    },
+ "es": {
+    "adieu": "Gracias por jugar.",
+    "computer choice": "Elección de la computadora: ",
+    "continue": "¿Te gustaría jugar otro juego?\nEscriba y para sí o n para no.",
+    "enter valid choice": "Ingrese una opción válida: roca, papel, tijeras, lagartija, Spock.",
+    "language": "Elige tu idioma. Ingrese 1 para inglés, 2 para español.",
+    "not valid choice": "... no es una opción válida.",
+    "result computer wins": "La computadora gana el juego.",
+    "result tie": "El juego es un empate.",
+    "result user wins": "Tu ganas el juego.",
+    "user input": "Entraste: ",
+    "user rps choice": "Elija uno: roca, papel, tijeras, lagartija, Spock.",
+    "valid answers": "Escriba y para sí o n para no.",
+    "welcome": "¡Bienvenido a roca, papel, tijera, lagartija, Spock!",
+    "your choice": "Tu elección: "
+    }
+}
