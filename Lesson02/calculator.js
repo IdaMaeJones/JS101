@@ -1,6 +1,9 @@
 const readline = require('readline-sync');
 const MESSAGES = require('./calculator_messages.json');
 const LANGUAGE = 'en';
+const VALID_OPERATORS = ['+', '-', '*', '/', '^'];
+const VALID_RESPONSES = ['y', 'Y', 'n', 'N'];
+var CALCULATOR_ON_OFF = 'ON';
 
 // PSEUDOCODE
 // Ask the user for the first number.
@@ -10,59 +13,32 @@ const LANGUAGE = 'en';
 // Print the result to the terminal.
 // Ask the user if they want to perform another calculation.
 
-/*
-   Helper function: messages
-   Input: A string 'message'
-   Output: relevant language and message
-*/
+// HELPER FUNCTIONS //
+// Function to return message in appropriate language
 function messages(message, lang = 'en') {
   return MESSAGES[lang][message];
 }
 
-/*
-   Helper function: prompt
-   Call function "messages" with input "key" and relevant language
-   Log this output
-   Input: A message 'key'
-   Output: Log to console correct 'message' from json in language specified
-   and pre-pended by "=> "
-*/
-/*
-function prompt(message) {
-    console.log(`=> ${message}`);
-}
-*/
+
+// Function to append prompt and call helper function for
+// message in appropriate language
 function prompt(key) {
   let message = messages(key, LANGUAGE);
   console.log(`=> ${message}`);
 }
 
-/*
-   Helper function: invalidNumber
-   Input: 'num' from readline-sync user response
-   Output: return true if input is a number, false if not
-*/
+
+// Function to check if input number is not empty or NaN
 function invalidNumber(num) {
   return num.trimStart() === '' || Number.isNaN(Number(num));
 }
 
-/* Welcome Message */
-//console.log('Welcome to Calculator!');
-// prompt(MESSAGES['welcome']);
+
+// MAIN CALCULATOR FUNCTION
+//   do-while loop used to encapsulate the calculator code
+//   in case user wants to perform additional calculations
 prompt('welcome');
-
-/* Variable: internal variable to decide if user wants another calculation */
-let continueCalc = 1;
-
-
-/*
-   MAIN CALCULATOR FUNCTION
-   do-while loop is used to encapsulate the entire calculator code
-   in case user wants to perform additional calculations
-*/
 do {
-  // prompt('What is the first number?');
-  // prompt(MESSAGES['firstNumber']);
   prompt('firstNumber');
   let number1 = readline.question();
   while (invalidNumber(number1)) {
@@ -71,8 +47,6 @@ do {
     number1 = readline.question();
   }
 
-  // prompt('What is the second number?');
-  // prompt(MESSAGES['secondNumber']);
   prompt('secondNumber');
   let number2 = readline.question();
   while (invalidNumber(number2)) {
@@ -81,77 +55,55 @@ do {
     number2 = readline.question();
   }
 
-  const operatorArray = ['+', '-', '*', '/', '^'];
-
-  // prompt('What operation would you like to perform?\n' +
-  //       '+  -  *  /  ^');
-  // prompt(MESSAGES['operation']);
   prompt('operation');
   let operation = readline.question();
-  while (operation.trimStart() === '' || !operatorArray.includes(operation)) {
+  while (operation.trimStart() === '' || !VALID_OPERATORS.includes(operation)) {
     console.log(`You entered "${operation}", which is not a valid operator.\n` +
                `Please enter a valid operator: + - * / ^`);
     operation = readline.question();
   }
 
-  let output;
-  /*
-if (operation === '1') { // '1' represents addition
-  output = Number(number1) + Number(number2);
-} else if (operation === '2') { // '2' represents subtraction
-  output = Number(number1) - Number(number2);
-} else if (operation === '3') { // 3 represents multiplication
-  output = Number(number1) * Number(number2);
-} else if (operation === '4') { // 4 represents division
-  output = Number(number1) / Number(number2);
-}
-*/
-
+  let answer;
   switch (operation) {
     case '+':
-      output = Number(number1) + Number(number2);
+      answer = Number(number1) + Number(number2);
       break;
     case '-':
-      output = Number(number1) - Number(number2);
+      answer = Number(number1) - Number(number2);
       break;
     case '*':
-      output = Number(number1) * Number(number2);
+      answer = Number(number1) * Number(number2);
       break;
     case '/':
-      output = Number(number1) / Number(number2);
+      answer = Number(number1) / Number(number2);
       break;
     case '^':
-      output = Number(number1) ** Number(number2);
+      answer = Number(number1) ** Number(number2);
       break;
     default:
       console.log('Please enter one of the following math operators\n' +
                         ' +  -  *  / ^');
   }
 
-  console.log(`The result is: ${output}\n`);
+  console.log(`The result is: ${answer}\n`);
 
-  /* Ask if user would like to perform another calculations */
-  let continueArray = ['y', 'Y', 'n', 'N'];
-  //prompt(`Would you like to perform another calculation?\n` +
-  //       `Type y for yes or n for no.`);
-  // prompt(MESSAGES['continue']);
   prompt('continue');
-  let anotherCalc = readline.question();
-  while (anotherCalc.trimStart() === '' || !continueArray.includes(anotherCalc)) {
-    console.log(`You entered "${anotherCalc}".\n` +
+  let anotherCalculation = readline.question();
+  while (anotherCalculation.trimStart() === '' ||
+         !VALID_RESPONSES.includes(anotherCalculation)) {
+    console.log(`You entered "${anotherCalculation}".\n` +
                `Please type y for yes or n for no.`);
-    anotherCalc = readline.question();
+    anotherCalculation = readline.question();
   }
-
-  switch (anotherCalc.toUpperCase()) {
+  switch (anotherCalculation.toUpperCase()) {
     case 'Y':
-      continueCalc = 1;
+      CALCULATOR_ON_OFF = 'ON';
       break;
     default:
-      continueCalc = 0;
+      CALCULATOR_ON_OFF = 'OFF';
       break;
   }
+  console.clear();
+} while (CALCULATOR_ON_OFF === 'ON');
 
-} while (continueCalc === 1);
-
-/* ==== ==== END OF MAIN CALCULATOR CODE ==== ==== */
+/* ==== ==== END OF CALCULATOR CODE ==== ==== */

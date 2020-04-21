@@ -1,6 +1,8 @@
 const readline = require('readline-sync');
 const MESSAGES = require('./mortgage_messages.json');
+const VALID_RESPONSES = ['y', 'Y', 'n', 'N'];
 var LANGUAGE = 'en';
+
 
 /*
    FORMAL PSEUDOCODE
@@ -41,52 +43,32 @@ var LANGUAGE = 'en';
 
 // ==== ===== ==== ==== //
 // START
-
-// Array: internal array of valid user inputs //
-let validAnswersArray = ['y', 'Y', 'n', 'N'];
-
-
 // SUBPROCESS check if input is a valid number
-// Helper function: invalidNumber //
-// Input: 'num' from readline-sync user response //
-// Output: return true if input is a positive number, false if not //
 function invalidNumber(num) {
   return num.trimStart() === '' || Number.isNaN(Number(num)) || (num < 0);
 }
 
 
 // SUBPROCESS pair message with language
-// Helper function: messages //
-// Input: A string 'message' //
-// Output: relevant language and message //
 function messages(message, lang = 'en') {
   return MESSAGES[lang][message];
 }
 
 
 // SUBPROCESS output message in requested language after appending "=> "
-// Helper function: prompt //
-// Call function "messages" with input "key" //
-// and relevant language. Log this output //
-// Input: A message 'key' //
-// Output: Log to console correct 'message' from json in  //
-//         language specified and pre-pended by "=> " //
 function prompt(key) {
   let message = messages(key, LANGUAGE);
   console.log(`=> ${message}`);
 }
 
+
 // GET language for user interface
-// Ask in English if another language should be used //
-// Ask same in Spanish //
-// Show valid answer choices in English //
-// Show valid answers in Spanish //
 prompt('language');
 console.log(messages('language', 'es'));
 prompt('valid answers');
 console.log(messages('valid answers', 'es'));
 let answer = readline.question();
-while (answer.trimStart() === '' || !validAnswersArray.includes(answer)) {
+while (answer.trimStart() === '' || !VALID_RESPONSES.includes(answer)) {
   prompt('user input');
   console.log(`${answer}`);
   prompt('valid answers');
@@ -96,10 +78,6 @@ while (answer.trimStart() === '' || !validAnswersArray.includes(answer)) {
 
 
 // SET language for user interface
-// Once user inputs valid answer for language question
-// if yes, set language to Spanish: LANGUAGE = 'es'
-// if no, set language to English: LANGUAGE = 'en'
-// Using switch to allow future addition of new languages
 switch (answer.toUpperCase()) {
   case 'Y':
     LANGUAGE = 'es';
@@ -110,70 +88,55 @@ switch (answer.toUpperCase()) {
 }
 
 
-/* Welcome Message */
-prompt('welcome');
-
-
 // MAIN MORTGAGE FUNCTION //
-// while loop is used to encapsulate the entire calculator code //
-// in case user wants to perform additional calculations //
+// while loop is used to encapsulate the mortgage code //
+// in case user wants additional mortgage calculations //
+prompt('welcome');
 while (true) {
-  /* SET internal variables */
-  // SET monthlyPmt
-  // SET intRatePctMthly
-  // SET loanTermMths
-  // SET output
+  // SET internal variables
   let monthlyPmt = 0;
   let intRatePctMthly = 0;
   let loanTermMths = 0;
   let output = 'Uninitialized Output';
 
-
-  /* GET input data */
-  // GET loan amount: loanAmt
+  // GET loan amount
   prompt('loan amount');
   let loanAmt = readline.question();
   while (invalidNumber(loanAmt)) {
     prompt('user input');
-    console.log(`${loanAmt}, which is not a valid number.\n`);
+    console.log(`${loanAmt} ` + messages('invalid amount', LANGUAGE) + `\n`);
     prompt('enter number');
     loanAmt = readline.question();
   }
 
-
-  // GET APR interest rate: intRatePctAPR
+  // GET APR interest rate
   prompt('interest rate');
   let intRatePctAPR = readline.question();
   while (invalidNumber(intRatePctAPR)) {
     prompt('user input');
-    console.log(`${intRatePctAPR}%, which is not a valid number.\n`);
+    console.log(`${intRatePctAPR}% ` +
+                messages('invalid APR', LANGUAGE) + `\n`);
     prompt('enter number');
     intRatePctAPR = readline.question();
   }
 
-
-  // GET term of loan in years: loanTermYrs
+  // GET term of loan in years
   prompt('loan term');
   let loanTermYrs = readline.question();
   while (invalidNumber(loanTermYrs)) {
     prompt('user input');
-    console.log(`${loanTermYrs}, which is not a valid number.\n`);
+    console.log(`${loanTermYrs} ` + messages('invalid term', LANGUAGE) + `\n`);
     prompt('enter number');
     loanTermYrs = readline.question();
   }
 
-
-  // Calculate monthly interest rate, loan term in months
-  // Divide APR by 100 to convert % to decimal
-  // Divide APR by 12 to convert annual interest rate to monthly
-  // Divide loan term in years by 12 to get loan term in months
+  // Calculate monthly interest rate & loan term in months
   intRatePctMthly = (intRatePctAPR / 100) / 12;
   loanTermMths = loanTermYrs * 12;
 
-
   // READ loanAmt, intRatePctMthly, loanTermMths
   // Calcuate monthly payment using formula
-  /* let m = p * (j / (1 - Math.pow((1 + j),(-n)))); */
+  // let m = p * (j / (1 - Math.pow((1 + j),(-n))));
   if (intRatePctAPR > 0) {
     monthlyPmt = (loanAmt * (intRatePctMthly /
                  ( 1 - Math.pow((1 + intRatePctMthly),
@@ -182,31 +145,27 @@ while (true) {
     monthlyPmt = (loanAmt / loanTermMths).toFixed(2);
   }
 
-
   // Build output string
-  output = messages('outputA', LANGUAGE) + `${loanAmt}` +
-             messages('outputB', LANGUAGE) + `${monthlyPmt}` +
-             messages('outputC', LANGUAGE) + `${loanTermMths}` +
-             messages('outputD', LANGUAGE) + `\n`;
-
+  output = messages('output payment', LANGUAGE) + `${loanAmt}` +
+             messages('output is', LANGUAGE) + `${monthlyPmt}` +
+             messages('output for', LANGUAGE) + `${loanTermMths}` +
+             messages('output months', LANGUAGE) + `\n`;
 
   // PRINT output
   console.log(output);
 
-
   // GET would user like to perform another calculation
-  // if user inputs blank or non-valid answer //
-  // pester them to input a valid answer //
-  // IF (no) break ELSE while loop continues to perform loan calculation
   prompt('continue');
-  let anotherCalc = readline.question();
-  while (anotherCalc.trimStart() === '' || !validAnswersArray.includes(anotherCalc)) {
+  let anotherCalculation = readline.question();
+  while (anotherCalculation.trimStart() === '' ||
+         !VALID_RESPONSES.includes(anotherCalculation)) {
     prompt('user input');
-    console.log(`${anotherCalc}`);
+    console.log(`${anotherCalculation}`);
     prompt('valid answers');
-    anotherCalc = readline.question();
+    anotherCalculation = readline.question();
   }
-  if (anotherCalc.toUpperCase() === 'N') break;
+  if (anotherCalculation.toUpperCase() === 'N') break;
+  console.clear();
 }
 
 // Display Goodbye Message
