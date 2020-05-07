@@ -117,7 +117,7 @@ buffer = `console.log(munstersDescription.toUpperCase()[0] +
             munstersDescription.substring(1).toLowerCase());`;
 print();
 let munstersDescription = "the Munsters are CREEPY and Spooky.";
-console.log(munstersDescription.toUpperCase()[0] + 
+console.log(munstersDescription.toUpperCase()[0] +
             munstersDescription.substring(1).toLowerCase());
 qs += 1;
 ans += 1;
@@ -163,7 +163,7 @@ Object.assign(ages, additionalAges);`;
 print();
 ages = { Herman: 32, Lily: 30, Grandpa: 5843, Eddie: 10 };
 console.log(`Before: ` + JSON.stringify(ages));
-let additionalAges = { Marilyn: 22, Spot: 237 }; 
+let additionalAges = { Marilyn: 22, Spot: 237 };
 Object.assign(ages, additionalAges);
 console.log(`After: ` + JSON.stringify(ages));
 qs += 1;
@@ -216,6 +216,39 @@ buffer = `How can we add the family pet, "Dino", to the following array?
 let flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"];`;
 print();
 print('ans');
+buffer = `Use one of three methods of Array: arr.push('Dino') or arr = arr.concat('Dino') or 
+arr[arr.length] = "Dino"`;
+print();
+print('code');
+buffer = `let flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"];
+  flintstones.push('Dino');
+let flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"];
+  flintstones = flintstones.concat('Dino');
+let flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"];
+  flintstones[flintstones.length] = 'Dino';`;
+print();
+let flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"];
+console.log('Using .push()');
+flintstones.push('Dino');
+console.log(flintstones);
+flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"];
+console.log('Using .concat()');
+flintstones = flintstones.concat('Dino');
+console.log(flintstones);
+flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"];
+console.log('Using arr.[arr.length] = "Dino"');
+flintstones[flintstones.length] = 'Dino';
+console.log(flintstones);
+qs += 1;
+ans += 1;
+print('end');
+
+// Qs. 9
+print('qs');
+buffer = `How can we add the family pet, "Dino", to the following array?
+let flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"];`;
+print();
+print('ans');
 buffer = `Use the Array.push() method. `;
 print();
 print('code');
@@ -223,24 +256,9 @@ buffer = `let flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebb
 flintstones.push('Dino');
 console.log(flintstones);`;
 print();
-let flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"];
-flintstones.push('Dino');
+flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"];
+flintstones.push('Dino', 'Hoppy');
 console.log(flintstones);
-qs += 1;
-ans += 1;
-print('end');
-
-/*
-// Qs. 9
-print('qs');
-buffer = ` `;
-print();
-print('ans');
-buffer = ` `;
-print();
-print('code');
-buffer = ` `;
-print();
 qs += 1;
 ans += 1;
 print('end');
@@ -248,18 +266,32 @@ print('end');
 
 // Qs. 10
 print('qs');
-buffer = ` `;
+buffer = `Return a new version of this sentence that ends just before the word 
+house. Don't worry about spaces or punctuation: remove everything starting from 
+the beginning of house to the end of the sentence.
+let advice = 'Few things in life are as important as house training your pet 
+dinosaur.';
+// Expected return value:
+// => 'Few things in life are as important as ' `;
 print();
 print('ans');
-buffer = ` `;
+buffer = `Using .slice() and .indexOf() methods.`;
 print();
 print('code');
-buffer = ` `;
+buffer = `let advice = 'Few things in life are as important as house training 
+your pet dinosaur.';
+advice = advice.slice(0, advice.indexOf('house'));
+console.log(advice); `;
 print();
+let advice = `Few things in life are as important as house training your pet
+dinosaur.`;
+advice = advice.slice(0, advice.indexOf('house'));
+console.log(advice);
+// Expected return value:
+// => 'Few things in life are as important as '
 qs += 1;
 ans += 1;
 print('end');
-*/
 
 
 /* TEMPLATE
