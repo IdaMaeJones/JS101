@@ -132,30 +132,40 @@ console.log(false === '0'); `;
 print();
 print('ans');
 buffer = `The first statement is true as non-strict comparision would yield
-the boolean 'false' compared with boolean. The second statement is true as the
+the boolean 'false' compared with boolean. The second statement is false as the
 boolean false is strictly compared with the number zero, which is false.`;
 print();
 print('code');
 buffer = `console.log(false == '0');
 console.log(false === '0'); `;
+print();
 console.log(false == '0');
 console.log(false === '0');
-print();
 qs += 1;
 ans += 1;
 print('end');
 
-/*
+
 // Qs. 6
 print('qs');
-buffer = ` `;
+buffer = `We have most of the Munster family in our ages object:
+let ages = { Herman: 32, Lily: 30, Grandpa: 5843, Eddie: 10 };
+Add entries for Marilyn and Spot to the object:
+let additionalAges = { Marilyn: 22, Spot: 237 }; `;
 print();
 print('ans');
-buffer = ` `;
+buffer = `Use Object.assign method to add 'additionalAges' to 'ages'. `;
 print();
 print('code');
-buffer = ` `;
+buffer = `let ages = { Herman: 32, Lily: 30, Grandpa: 5843, Eddie: 10 };
+let additionalAges = { Marilyn: 22, Spot: 237 }; 
+Object.assign(ages, additionalAges);`;
 print();
+ages = { Herman: 32, Lily: 30, Grandpa: 5843, Eddie: 10 };
+console.log(`Before: ` + JSON.stringify(ages));
+let additionalAges = { Marilyn: 22, Spot: 237 }; 
+Object.assign(ages, additionalAges);
+console.log(`After: ` + JSON.stringify(ages));
 qs += 1;
 ans += 1;
 print('end');
@@ -163,14 +173,38 @@ print('end');
 
 // Qs. 7
 print('qs');
-buffer = ` `;
+buffer = `Determine whether the name Dino appears in the strings below -- check each string separately):
+let str1 = "Few things in life are as important as house training your pet dinosaur.";
+let str2 = "Fred and Wilma have a pet dinosaur named Dino."; `;
 print();
 print('ans');
-buffer = ` `;
+buffer = `Use one of the following methods: .includes() or .match() or 
+.indexOf() > -1 `;
 print();
 print('code');
-buffer = ` `;
+buffer = `Using .includes()
+let str1 = "Few things in life are as important as house training your pet dinosaur.";
+let str2 = "Fred and Wilma have a pet dinosaur named Dino.";
+str1.includes('Dino');
+str2.includes('Dino');
+Using .match()
+str1.match('Dino') !== null;
+str2.match('Dino') !== null;
+Using .indexOf() > -1
+str1.indexOf('Dino') > -1 ;
+str2.indexOf('Dino') > -1;`;
 print();
+str1 = "Few things in life are as important as house training your pet dinosaur.";
+str2 = "Fred and Wilma have a pet dinosaur named Dino.";
+console.log(`Using .includes()`);
+console.log(str1.includes('Dino'));
+console.log(str2.includes('Dino'));
+console.log(`Using .match()`);
+console.log(str1.match('Dino') !== null);
+console.log(str2.match('Dino') !== null);
+console.log(`Using .indexOf() > -1`);
+console.log(str1.indexOf('Dino') > -1 );
+console.log(str2.indexOf('Dino') > -1);
 qs += 1;
 ans += 1;
 print('end');
@@ -178,19 +212,25 @@ print('end');
 
 // Qs. 8
 print('qs');
-buffer = ` `;
+buffer = `How can we add the family pet, "Dino", to the following array?
+let flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"];`;
 print();
 print('ans');
-buffer = ` `;
+buffer = `Use the Array.push() method. `;
 print();
 print('code');
-buffer = ` `;
+buffer = `let flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"];
+flintstones.push('Dino');
+console.log(flintstones);`;
 print();
+let flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"];
+flintstones.push('Dino');
+console.log(flintstones);
 qs += 1;
 ans += 1;
 print('end');
 
-
+/*
 // Qs. 9
 print('qs');
 buffer = ` `;
