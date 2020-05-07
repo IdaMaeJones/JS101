@@ -123,22 +123,29 @@ qs += 1;
 ans += 1;
 print('end');
 
-/*
+
 // Qs. 5
 print('qs');
-buffer = ` `;
+buffer = `What will the following code output?
+console.log(false == '0');
+console.log(false === '0'); `;
 print();
 print('ans');
-buffer = ` `;
+buffer = `The first statement is true as non-strict comparision would yield
+the boolean 'false' compared with boolean. The second statement is true as the
+boolean false is strictly compared with the number zero, which is false.`;
 print();
 print('code');
-buffer = ` `;
+buffer = `console.log(false == '0');
+console.log(false === '0'); `;
+console.log(false == '0');
+console.log(false === '0');
 print();
 qs += 1;
 ans += 1;
 print('end');
 
-
+/*
 // Qs. 6
 print('qs');
 buffer = ` `;
