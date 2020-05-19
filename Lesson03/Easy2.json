@@ -1,0 +1,14 @@
+{"en":
+  {"qs2":
+    {"adieu": "Thank you. Proceeding to the next question.",
+    "continue": "Would you like to try another method?\nType y for yes or n for no.",
+    "correct input": "Please input either 1 or 2 or 3 only.",
+    "flavor": "Which method do you want to use in the solution?\nType '1' for .slice(), '2' for .forEach(), '3' for .reduce()",
+    "original array": "Original array continues to be unmodified ",
+    "reversed array": "Reversed array for",
+    "sorted array": "Sorted array for",
+    "user input": "You entered: ",
+    "valid answers": "Please type y for yes or n for no."
+    }
+  }
+}
