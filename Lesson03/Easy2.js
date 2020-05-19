@@ -1,7 +1,27 @@
 // Launch School
 // JS 101 Lesson 3: Practice Problems
-// Easy 1
+// Easy 2
 // const readline = require('readline-sync');
+// const MESSAGES = require('./mortgage_messages.json');
+// const VALID_RESPONSES = ['y', 'Y', 'n', 'N'];
+// var LANGUAGE = 'en';
+//
+// COMMON HELPER CODE
+function getObjPropsValues(myObj){
+  var propsAndValues = [];
+  var value;
+  // keys.push(Object.getOwnPropertyNames(mapObj));
+  for(var key in myObj) {
+    if (Object.prototype.hasOwnProperty.call(myObj, key)) {
+      value = key + `:` + myObj[key];
+      propsAndValues.push(value);
+    }
+  }
+  return propsAndValues;
+}
+// END COMMON HELPER CODE
+//
+// COMMON DISPLAY CODE
 const QUESTION = 'QUESTION';
 const ANSWER = 'ANSWER';
 var buffer = '';
@@ -28,6 +48,9 @@ function print(arg) {
       break;
   }
 }
+// END DISPLAY CODE
+
+
 // START
 // Qs. 1
 print('qs');
@@ -65,20 +88,9 @@ console.log(`str10 remains unchanged: ` + str10);
 console.log(' ');
 console.log(`The same can be achieved using objects to map replacements and 
 functions in .replace:`);
-function getObjKeysValues(myObj){
-  var keysAndValues = [];
-  var value;
-  // keys.push(Object.getOwnPropertyNames(mapObj));
-  for(var key in myObj) {
-    if (Object.prototype.hasOwnProperty.call(myObj, key)) {
-      value = key + `:` + myObj[key];
-      keysAndValues.push(value);
-    }
-  }
-  return keysAndValues;
-}
+
 var mapObj = {cat:"kitty", dog:"pooch", goat:"billy"};
-console.log(`mapObj is: ` + getObjKeysValues(mapObj));
+console.log(`mapObj is: ` + getObjPropsValues(mapObj));
 
 var re = new RegExp(Object.keys(mapObj).join("|"),"gi");
 console.log(`regular expression used is: ` + re);
@@ -90,7 +102,7 @@ str12 = str12.replace(re, function(matched){return mapObj[matched];});
 console.log(`str12 is now: ` + str12);
 
 mapObj.mouse = "snake";
-console.log(`mapObj is: ` + getObjKeysValues(mapObj));
+console.log(`mapObj is: ` + getObjPropsValues(mapObj));
 
 re = RegExp(Object.keys(mapObj).join("|"),"gi");
 console.log(`regular expression used is: ` + re);
