@@ -179,7 +179,8 @@ do {
       console.log(prompt('sorted array') + numbers2 + `: ` + sortedArray);
       break;
     case '2':
-      reversedArray = [...numbers1].slice().reverse();
+      reversedArray = [...numbers1].forEach((num) => {
+        reversedArray.unshift(num)});
       console.log(prompt('reversed array') + numbers1 + `: ` + reversedArray);
       console.log(prompt('original array') + numbers1);
       sortedArray = [...numbers2].sort((num1, num2) => num2 - num1);
