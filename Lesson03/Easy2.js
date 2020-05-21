@@ -179,21 +179,14 @@ do {
       console.log(prompt('sorted array') + numbers2 + `: ` + sortedArray);
       break;
     case '2':
-      reversedArray = [...numbers1].forEach((num) => {
-        reversedArray.unshift(num)});
+      numbers1.forEach((num) => {reversedArray.unshift(num)});
       console.log(prompt('reversed array') + numbers1 + `: ` + reversedArray);
       console.log(prompt('original array') + numbers1);
-      sortedArray = [...numbers2].sort((num1, num2) => num2 - num1);
-      console.log(prompt('sorted array') + numbers2 + `: ` + sortedArray);
-      console.log(prompt('original array') + numbers2);
       break;
     case '3':
       reversedArray = [...numbers1].slice().reverse();
       console.log(prompt('reversed array') + numbers1 + `: ` + reversedArray);
       console.log(prompt('original array') + numbers1);
-      sortedArray = [...numbers2].sort((num1, num2) => num2 - num1);
-      console.log(prompt('sorted array') + numbers2 + `: ` + sortedArray);
-      console.log(prompt('original array') + numbers2);
       break;
     default:
       reversedArray = [...numbers1].slice().reverse();
@@ -228,14 +221,23 @@ print('end');
 // Qs. 3
 QS = `qs` + qs;
 print('qs');
-buffer = ` `;
+buffer = `Given a number and an array, determine whether the number is included in the array.
+let numbers = [1, 2, 3, 4, 5, 15, 16, 17, 95, 96, 99];
+let number1 = 8;  // false
+let number2 = 95; // true`;
 print();
 print('ans');
-buffer = ` `;
+buffer = `Use .includes() method of Array.`;
 print();
 print('code');
-buffer = ` `;
+buffer = `console.log(numbers.includes(number1));
+console.log(numbers.includes(number2));`;
 print();
+let numbers = [1, 2, 3, 4, 5, 15, 16, 17, 95, 96, 99];
+let number1 = 8;  // false
+let number2 = 95; // true
+console.log(numbers.includes(number1));
+console.log(numbers.includes(number2));
 qs += 1;
 ans += 1;
 print('end');
