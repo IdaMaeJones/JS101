@@ -127,7 +127,7 @@ console.log(`regular expression used is: ` + re);
 str12 = str12.replace(re, function(matched){return mapObj[matched];});
 console.log(`str12 is now: ` + str12);
 
-
+/*
 // Qs. 2
 QS = `qs` + qs;
 print('qs');
@@ -216,7 +216,7 @@ prompt('adieu');
 qs += 1;
 ans += 1;
 print('end');
-
+*/
 
 // Qs. 3
 QS = `qs` + qs;
@@ -242,24 +242,102 @@ qs += 1;
 ans += 1;
 print('end');
 
-/*
+
 // Qs. 4
 QS = `qs` + qs;
 print('qs');
-buffer = ` `;
+buffer = `Starting with the string:
+let famousWords = "seven years ago..."; `;
 print();
 print('ans');
-buffer = ` `;
+buffer = `Use .concat() or '+' operator in front of famousWords. `;
 print();
 print('code');
-buffer = ` `;
+buffer = `console.log("Four score and" + famousWords); `;
 print();
+let famousWords = "seven years ago...";
+console.log("Four score and" + famousWords);
 qs += 1;
 ans += 1;
 print('end');
 
 
-// Qs. 10
+// Qs. 5
+QS = `qs` + qs;
+print('qs');
+buffer = `Given an array of numbers [1, 2, 3, 4, 5], mutate the array by 
+removing the number at index 2, so that the array becomes [1, 2, 4, 5]. `;
+print();
+print('ans');
+buffer = `Use .splice(start, end, <none>) method of Array. `;
+print();
+print('code');
+buffer = `let numbers = [1, 2, 3, 4, 5];
+numbers.splice(2,1);
+console.log(numbers); `;
+print();
+numbers = [1, 2, 3, 4, 5];
+numbers.splice(2, 1);
+console.log(numbers);
+qs += 1;
+ans += 1;
+print('end');
+
+
+// Qs.6
+QS = `qs` + qs;
+print('qs');
+buffer = `let flintstones = ["Fred", "Wilma"];
+flintstones.push(["Barney", "Betty"]);
+flintstones.push(["Bambam", "Pebbles"]);
+This code will create a nested array that looks like this:
+["Fred", "Wilma", ["Barney", "Betty"], ["Bambam", "Pebbles"]];
+Create a new array that contains all of the above values, but in an un-nested 
+format: [ 'Fred', 'Wilma', 'Barney', 'Betty', 'Bambam', 'Pebbles' ]`;
+print();
+print('ans');
+buffer = `Use one of three methods: Spread Syntax, .reduce() method, or 
+.forEach() method.`;
+print();
+print('code');
+buffer = `flintstones = [].concat(...flintstones);
+console.log(flintstones);
+// Using .reduce()
+flintstones = flintstones.reduce( ((accum, element) => {return accum.concat(element)}), []);
+console.log(flintstones);
+// Using .forEach()
+let tempArray = [];
+flintstones.forEach((element) => {tempArray = tempArray.concat(element)});
+console.log(flintstones);`;
+print();
+console.log("// Spread Syntax");
+let flintstones = ["Fred", "Wilma"];
+flintstones.push(["Barney", "Betty"]);
+flintstones.push(["Bambam", "Pebbles"]);
+flintstones = [].concat(...flintstones);
+console.log(flintstones);
+// Using .reduce()
+console.log("// .reduce() method");
+flintstones = ["Fred", "Wilma"];
+flintstones.push(["Barney", "Betty"]);
+flintstones.push(["Bambam", "Pebbles"]);
+flintstones = flintstones.reduce( ((accum, element) => {return accum.concat(element)}), []);
+console.log(flintstones);
+// Using .forEach()
+console.log("// .forEach method")
+flintstones = ["Fred", "Wilma"];
+flintstones.push(["Barney", "Betty"]);
+flintstones.push(["Bambam", "Pebbles"]);
+let tempArray = [];
+flintstones.forEach((element) => {tempArray = tempArray.concat(element)});
+flintstones = tempArray;
+console.log(flintstones);
+qs += 1;
+ans += 1;
+print('end');
+
+/*
+// Qs. 7
 QS = `qs` + qs;
 print('qs');
 buffer = ` `;
@@ -274,8 +352,8 @@ qs += 1;
 ans += 1;
 print('end');
 
-
-// Qs. 10
+/*
+// Qs. 8
 QS = `qs` + qs;
 print('qs');
 buffer = ` `;
@@ -290,8 +368,8 @@ qs += 1;
 ans += 1;
 print('end');
 
-
-// Qs. 10
+/*
+// Qs. 9
 QS = `qs` + qs;
 print('qs');
 buffer = ` `;
@@ -306,39 +384,7 @@ qs += 1;
 ans += 1;
 print('end');
 
-
-// Qs. 10
-QS = `qs` + qs;
-print('qs');
-buffer = ` `;
-print();
-print('ans');
-buffer = ` `;
-print();
-print('code');
-buffer = ` `;
-print();
-qs += 1;
-ans += 1;
-print('end');
-
-
-// Qs. 10
-QS = `qs` + qs;
-print('qs');
-buffer = ` `;
-print();
-print('ans');
-buffer = ` `;
-print();
-print('code');
-buffer = ` `;
-print();
-qs += 1;
-ans += 1;
-print('end');
-
-
+/*
 // Qs. 10
 QS = `qs` + qs;
 print('qs');
