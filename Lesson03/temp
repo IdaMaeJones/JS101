@@ -1,0 +1,36 @@
+==== ==== ==== ==== ====
+QUESTION 1: 
+Given a string, return a new string that replaces every occurrence of 
+the word "important" with "urgent":
+let advice = "Few things in life are as important as house training your pet 
+dinosaur."; 
+==== ==== ==== ==== ====
+ANSWER 1: 
+Use the .replace() method of String. 
+CODE:
+let advice = "Few things in life are as important as house training 
+your pet dinosaur."; 
+advice.replace('important', 'urgent');
+console.log(advice);
+Few things in life are as urgent as house training your pet 
+dinosaur.
+ 
+Other examples of string replacement include using reular 
+expressions as follows:
+let str10 = "Welcome message: Hello World! hello world! Hello, 
+hello, hello"; 
+str10.replace('hello', 'hi'): Welcome message: Hello World! hi world! Hello, hello, hello
+str10.replace(/hello/, 'hi'): Welcome message: Hello World! hi world! Hello, hello, hello
+str10.replace(/hello/g, 'hi'): Welcome message: Hello World! hi world! Hello, hi, hi
+str10.replace(/hello/gi, 'hi'): Welcome message: hi World! hi world! hi, hi, hi
+str10 remains unchanged: Welcome message: Hello World! hello world! Hello, hello, hello
+ 
+The same can be achieved using objects to map replacements and 
+functions in .replace:
+mapObj is: cat:kitty,dog:pooch,goat:billy
+regular expression used is: /cat|dog|goat/gi
+str12 original: I have a cat, a dog, a mouse, and a goat.
+str12 is now: I have a kitty, a pooch, a mouse, and a billy.
+mapObj is: cat:kitty,dog:pooch,goat:billy,mouse:snake
+regular expression used is: /cat|dog|goat|mouse/gi
+str12 is now: I have a kitty, a pooch, a snake, and a billy.

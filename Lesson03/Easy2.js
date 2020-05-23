@@ -22,19 +22,6 @@ function prompt(key) {
 function invalidNumber(num) {
     return num.trimStart() === '' || Number.isNaN(Number(num));
 }
-// Display an Object's properties and corresponding values
-function getObjPropsValues(myObj){
-  var propsAndValues = [];
-  var result;
-  // keys.push(Object.getOwnPropertyNames(mapObj));
-  for(var key in myObj) {
-    if (Object.prototype.hasOwnProperty.call(myObj, key)) {
-      result = key + `:` + myObj[key];
-      propsAndValues.push(result);
-    }
-  }
-  return propsAndValues;
-}
 // END COMMON HELPER CODE
 //
 // COMMON DISPLAY CODE
@@ -44,7 +31,7 @@ var buffer = '';
 var divider = "==== ==== ==== ==== ====";
 var qs = 1;
 var ans = 1;
-var code = 'CODE:';
+var code = '.......... CODE ..........';
 function print(arg) {
   switch (arg) {
     case 'qs':
@@ -57,7 +44,7 @@ function print(arg) {
       console.log(`${code}`);
       break;
     case 'end':
-      console.log(`${divider}`);
+      console.log(` `);
       break;
     default:
       console.log(`${buffer}`);
@@ -68,7 +55,7 @@ function print(arg) {
 
 
 // START
-// Qs. 
+// Qs. 1
 QS = `qs` + qs;
 print('qs');
 buffer = `Given a string, return a new string that replaces every occurrence of 
@@ -88,8 +75,7 @@ print();
 let advice = `Few things in life are as important as house training your pet 
 dinosaur.`; 
 console.log(advice.replace('important', 'urgent'));
-qs += 1;
-ans += 1;
+/*
 console.log(" ");
 console.log(`Other examples of string replacement include using reular 
 expressions as follows:`);
@@ -127,7 +113,11 @@ console.log(`regular expression used is: ` + re);
 str12 = str12.replace(re, function(matched){return mapObj[matched];});
 console.log(`str12 is now: ` + str12);
 
-/*
+*/
+qs += 1;
+ans += 1;
+print('end');
+
 // Qs. 2
 QS = `qs` + qs;
 print('qs');
@@ -151,6 +141,7 @@ buffer = `reversedArray = [...numbers1].slice().reverse();
 sortedArray = [...numbers2].sort((num1, num2) => num2 - num1); or
 sortedArray = [...numbers2].sort() for ascending;`;
 print();
+/*
 let continueCode = 1;
 let numbers1 = [1, 2, 3, 4, 5];
 console.log(`Original array numbers1 is: [` + numbers1 + `]`);
@@ -213,10 +204,11 @@ do {
 
 } while (continueCode === 1);
 prompt('adieu');
+*/
 qs += 1;
 ans += 1;
 print('end');
-*/
+
 
 // Qs. 3
 QS = `qs` + qs;
@@ -324,7 +316,7 @@ flintstones.push(["Bambam", "Pebbles"]);
 flintstones = flintstones.reduce( ((accum, element) => {return accum.concat(element)}), []);
 console.log(flintstones);
 // Using .forEach()
-console.log("// .forEach method")
+console.log("// .forEach method");
 flintstones = ["Fred", "Wilma"];
 flintstones.push(["Barney", "Betty"]);
 flintstones.push(["Bambam", "Pebbles"]);
@@ -336,50 +328,85 @@ qs += 1;
 ans += 1;
 print('end');
 
-/*
+
 // Qs. 7
 QS = `qs` + qs;
 print('qs');
-buffer = ` `;
+buffer = `let flintstones = { Fred: 0, Wilma: 1, Barney: 2, Betty: 3, Bambam: 4,
+Pebbles: 5 };
+Create an array from this flintstones that contains only two elements: Barney's
+name and Barney's number [ 'Barney', 2 ] `;
 print();
 print('ans');
-buffer = ` `;
+buffer = `Use the .entries() method of Object datatype to create an array and
+then use .filter() and .shift() methods of Array datatype to return the
+required result.`;
 print();
 print('code');
-buffer = ` `;
+buffer = `let flintstones = { Fred: 0, Wilma: 1, Barney: 2, Betty: 3, Bambam: 4,
+Pebbles: 5 };
+let temp = Object.entries(flintstones);
+temp = temp.filter(e => e[0] === 'Barney');
+temp = temp.shift(); 
+// alternately, the above code could also be accomplished in one line ...
+console.log(Object.entries(flintstones).filter(e => e[0] === 'Barney').shift();`;
 print();
+flintstones = { Fred: 0, Wilma: 1, Barney: 2, Betty: 3, Bambam: 4, Pebbles: 5 };
+// let temp = Object.entries(flintstones);
+// temp = temp.filter(e => e[0] === 'Barney');
+// temp = temp.shift();
+// console.log(`// which returns: ` + temp);
+console.log(`// which returns ...`);
+console.log(Object.entries(flintstones).filter(e => e[0] === 'Barney').shift());
 qs += 1;
 ans += 1;
 print('end');
 
-/*
+
 // Qs. 8
 QS = `qs` + qs;
 print('qs');
-buffer = ` `;
+buffer = `Check whether the objects assigned to variables 'numbers' and 'table'
+are arrays.
+let numbers = [1, 2, 3, 4]; // true
+let table = { field1: 1, field2: 2, field3: 3, field4: 4 }; // false `;
 print();
 print('ans');
-buffer = ` `;
+buffer = `Use Array.isArray(yourArray) method `;
 print();
 print('code');
-buffer = ` `;
+buffer = `console.log(Array.isArray(numbers); // true
+console.log(Array.isArray(table); // false`;
 print();
+numbers = [1, 2, 3, 4];
+let table = { field1: 1, field2: 2, field3: 3, field4: 4 };
+console.log(Array.isArray(numbers));
+console.log(Array.isArray(table));
 qs += 1;
 ans += 1;
 print('end');
 
-/*
+
 // Qs. 9
 QS = `qs` + qs;
 print('qs');
-buffer = ` `;
+buffer = `Write two one-line expressions to count the number of lower-case 't'
+characters in each of the following strings:
+let statement1 = "The Flintstones Rock!";
+let statement2 = "Easy come, easy go.";`;
 print();
 print('ans');
-buffer = ` `;
+buffer = `Use the String.match() method with a RegExp (Regular Expression) and
+the required count is equal to the String.length() method applied to the string
+that matches the regular expression.`;
 print();
 print('code');
 buffer = ` `;
 print();
+let statement1 = "The Flintstones Rock!";
+let statement2 = "Easy come, easy go.";
+console.log(statement1.match(/t/g || []).length);
+console.log(statement2.match(/t/g || []).length);
 qs += 1;
 ans += 1;
 print('end');
