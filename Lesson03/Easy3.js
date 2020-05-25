@@ -1,28 +1,7 @@
 // Launch School
 // JS 101 Lesson 3: Practice Problems
-// Easy 2
-const readline = require('readline-sync');
-const MESSAGES = require('./Easy2.json');
-const VALID_RESPONSES = ['y', 'Y', 'n', 'N'];
-var LANGUAGE = 'en';
+// Easy 3
 var QS = '';
-//
-// COMMON HELPER CODE
-// pair message with language
-function messages(message, ques = QS, lang = LANGUAGE) {
-  return MESSAGES[lang][ques][message];
-}
-// Insert '=> ' before messages to user
-function prompt(key) {
-  let message = messages(key, QS, LANGUAGE);
-  console.log(`=> ${message}`);
-  return '';
-}
-// Invalid Number Check
-function invalidNumber(num) {
-    return num.trimStart() === '' || Number.isNaN(Number(num));
-}
-// END COMMON HELPER CODE
 //
 // COMMON DISPLAY CODE
 const QUESTION = 'QUESTION';
