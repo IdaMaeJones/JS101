@@ -32,6 +32,7 @@ var divider = "==== ==== ==== ==== ====";
 var qs = 1;
 var ans = 1;
 var code = '.......... CODE ..........';
+var output = '.......... OUTPUT ..........';
 function print(arg) {
   switch (arg) {
     case 'qs':
@@ -45,6 +46,9 @@ function print(arg) {
       break;
     case 'end':
       console.log(` `);
+      break;
+    case 'output':
+      console.log(`${output}`);
       break;
     default:
       console.log(`${buffer}`);
@@ -72,6 +76,7 @@ your pet dinosaur.";
 advice.replace('important', 'urgent');
 console.log(advice);`;
 print();
+print('output');
 let advice = `Few things in life are as important as house training your pet 
 dinosaur.`; 
 console.log(advice.replace('important', 'urgent'));
@@ -142,6 +147,7 @@ sortedArray = [...numbers2].sort((num1, num2) => num2 - num1); or
 sortedArray = [...numbers2].sort() for ascending;`;
 print();
 /*
+print('output');
 let continueCode = 1;
 let numbers1 = [1, 2, 3, 4, 5];
 console.log(`Original array numbers1 is: [` + numbers1 + `]`);
@@ -225,6 +231,7 @@ print('code');
 buffer = `console.log(numbers.includes(number1));
 console.log(numbers.includes(number2));`;
 print();
+print('output');
 let numbers = [1, 2, 3, 4, 5, 15, 16, 17, 95, 96, 99];
 let number1 = 8;  // false
 let number2 = 95; // true
@@ -247,6 +254,7 @@ print();
 print('code');
 buffer = `console.log("Four score and" + famousWords); `;
 print();
+print('output');
 let famousWords = "seven years ago...";
 console.log("Four score and" + famousWords);
 qs += 1;
@@ -268,6 +276,7 @@ buffer = `let numbers = [1, 2, 3, 4, 5];
 numbers.splice(2,1);
 console.log(numbers); `;
 print();
+print('output');
 numbers = [1, 2, 3, 4, 5];
 numbers.splice(2, 1);
 console.log(numbers);
@@ -302,6 +311,7 @@ let tempArray = [];
 flintstones.forEach((element) => {tempArray = tempArray.concat(element)});
 console.log(flintstones);`;
 print();
+print('output');
 console.log("// Spread Syntax");
 let flintstones = ["Fred", "Wilma"];
 flintstones.push(["Barney", "Betty"]);
@@ -351,6 +361,7 @@ temp = temp.shift();
 // alternately, the above code could also be accomplished in one line ...
 console.log(Object.entries(flintstones).filter(e => e[0] === 'Barney').shift();`;
 print();
+print('output');
 flintstones = { Fred: 0, Wilma: 1, Barney: 2, Betty: 3, Bambam: 4, Pebbles: 5 };
 // let temp = Object.entries(flintstones);
 // temp = temp.filter(e => e[0] === 'Barney');
@@ -378,6 +389,7 @@ print('code');
 buffer = `console.log(Array.isArray(numbers); // true
 console.log(Array.isArray(table); // false`;
 print();
+print('output');
 numbers = [1, 2, 3, 4];
 let table = { field1: 1, field2: 2, field3: 3, field4: 4 };
 console.log(Array.isArray(numbers));
@@ -401,28 +413,49 @@ the required count is equal to the String.length() method applied to the string
 that matches the regular expression.`;
 print();
 print('code');
-buffer = ` `;
+buffer = `let statement1 = "The Flintstones Rock!";
+let statement2 = "Easy come, easy go.";
+console.log((statement1.match(/t/g) || []).length);
+console.log((statement2.match(/t/g) || []).length);`;
 print();
+print('output');
 let statement1 = "The Flintstones Rock!";
 let statement2 = "Easy come, easy go.";
-console.log(statement1.match(/t/g || []).length);
-console.log(statement2.match(/t/g || []).length);
+console.log((statement1.match(/t/g) || []).length);
+console.log((statement2.match(/t/g) || []).length);
 qs += 1;
 ans += 1;
 print('end');
 
-/*
+
 // Qs. 10
 QS = `qs` + qs;
 print('qs');
-buffer = ` `;
+buffer = `Back in the stone age (before CSS), we used spaces to align things on
+the screen. If we have a 40-character wide table of Flintstone family members,
+how can we center the following title above the table with spaces?
+let title = "Flintstone Family Members"; `;
 print();
 print('ans');
-buffer = ` `;
+buffer = `Used String.prototype.padStart() method to pad ' ' at the beginning
+of the string 'title'. Determine the number of ' ' to pad by taking the floor
+of length of 'title' and dividing by 2.`;
 print();
 print('code');
-buffer = ` `;
+buffer = `let title = "Flintstone Family Members";
+console.log(\`'title' before padding is: \${title}\`);
+let pad = Math.floor((40-title.length)/2);
+console.log(\`Inserting \${pad} spaces.\`);
+title = title.padStart(pad + title.length);
+console.log(\`'title' after padding is : \${title}\`);\n`;
 print();
+print('output');
+let title = "Flintstone Family Members";
+console.log(`'title' before padding is: ${title}`);
+let pad = Math.floor((40-title.length)/2);
+console.log(`Inserting ${pad} spaces.`);
+title = title.padStart(pad + title.length);
+console.log(`'title' after padding is : ${title}`);
 qs += 1;
 ans += 1;
 print('end');
@@ -440,6 +473,7 @@ print();
 print('code');
 buffer = ` `;
 print();
+print('output');
 qs += 1;
 ans += 1;
 print('end');
