@@ -1,6 +1,6 @@
 // Launch School
 // JS 101 Lesson 3: Practice Problems
-// Hard1
+// Medium1
 var QS = '';
 //
 // COMMON DISPLAY CODE
@@ -290,31 +290,6 @@ qs += 1;
 ans += 1;
 print('end');
 
-
-let capitals = { uk: 'London', france: 'Paris', germany: 'Berlin' };
-Object.keys(capitals);      // => ['uk', 'france', 'germany']
-let capitalsList = Object.values(capitals);    // => ['London', 'Paris', 'Berlin']
-console.log(capitalsList);
-console.log(typeof capitalsList);
-console.log(Array.isArray(capitalsList));
-Object.values(capitals)[0]; // => 'London'
-console.log(`${typeof 42}`);
-console.log(`${typeof (Object.entries((Object.values(capitals))))}`);
-console.log(`${Object.entries(Object.values(capitals))}`);
-let capList = Object.entries(Object.values(capitals));
-console.log(capList);
-
-let newArray = ['one', 'two', 'three'];
-let myAnswer = Object.entries(newArray);
-console.log(myAnswer);
-console.log(myAnswer[0]);
-
-buffer = `TRIVIA: So, String.split on which Array.join is applied will return the original string back.
-console.log(\`\${'abcdefg'.split('').join('')}\`); // 'abcdefg' is returned
-// as 'abcdefg' is first split into an array ['a', 'b', ...] and then
-// the array is joined into a string before being returned.`;
-print();
-console.log(`${'abcdefg'.split('').join('')}`);
 
 /* TEMPLATE
 /*
