@@ -226,57 +226,115 @@ print('end');
 // Qs. 6
 QS = `qs` + qs;
 print('qs');
-buffer = ` `;
+buffer = `What do you think the following code will output?
+let nanArray = [NaN];
+console.log(nanArray[0] === NaN);
+Bonus: How can you reliably test if a value is NaN?`;
 print();
 print('ans');
-buffer = ` `;
+buffer = `The isNAN() function can be used to test for NaN.`;
 print();
-print('code');
-buffer = ` `;
-print();
+// print('code');
+// buffer = ` `;
+// print();
 print('output');
+let nanArray = [NaN];
+console.log(`console.log(nanArray[0] === NaN);`);
+console.log(nanArray[0] === NaN);
+console.log(`console.log(isNaN(nanArray[0]));`);
+console.log(isNaN(nanArray[0]));
 qs += 1;
 ans += 1;
 print('end');
 
 
-/*
 // Qs. 7
 QS = `qs` + qs;
 print('qs');
-buffer = ` `;
+buffer = `What is the output of the following code?
+let answer = 42;
+function messWithIt(someNumber) {
+  return (someNumber += 8);
+}
+let newAnswer = messWithIt(answer);
+console.log(answer - 8);`;
 print();
 print('ans');
-buffer = ` `;
+buffer = `The output should be 34 as the function does not mutate the input
+parameter and 42 - 8 = 34.`;
 print();
-print('code');
-buffer = ` `;
-print();
+// print('code');
+// buffer = ` `;
+// print();
 print('output');
+let answer = 42;
+function messWithIt(someNumber) {
+  return (someNumber += 8);
+}
+let newAnswer = messWithIt(answer);
+console.log(`answer - 8 is: ${answer - 8}`);
+console.log(`newAnswer is: ${newAnswer}`);
 qs += 1;
 ans += 1;
 print('end');
 
 
-/*
 // Qs. 8
 QS = `qs` + qs;
 print('qs');
-buffer = ` `;
+buffer = `One day, Spot was playing with the Munster family's home computer, and
+he wrote a small program to mess with their demographic data:
+let munsters = {
+  Herman: { age: 32, gender: "male" },
+  Lily: { age: 30, gender: "female" },
+  Grandpa: { age: 402, gender: "male" },
+  Eddie: { age: 10, gender: "male" },
+  Marilyn: { age: 23, gender: "female" }
+};
+
+function messWithDemographics(demoObject) {
+  Object.values(demoObject).forEach(familyMember => {
+    familyMember["age"] += 42;
+    familyMember["gender"] = "other";
+  });
+}
+After writing this function, he typed the following code:
+messWithDemographics(munsters);
+Before Grandpa could stop him, Spot hit the Enter key with his tail. Did the 
+family's data get ransacked? Why or why not?`;
 print();
 print('ans');
-buffer = ` `;
+buffer = `Yes the data did get changed as the function messWithDemographics()
+takes the object munsters as input parameter and uses the .forEach() method to
+mutate the elements of munsters by adding 42 to the value of age property/key.`;
 print();
-print('code');
-buffer = ` `;
-print();
+// print('code');
+// buffer = ` `;
+// print();
 print('output');
+let munsters = {
+  Herman: { age: 32, gender: "male" },
+  Lily: { age: 30, gender: "female" },
+  Grandpa: { age: 402, gender: "male" },
+  Eddie: { age: 10, gender: "male" },
+  Marilyn: { age: 23, gender: "female" }
+};
+console.log('Before:');
+console.log(Object.entries(munsters));
+function messWithDemographics(demoObject) {
+  Object.values(demoObject).forEach(familyMember => {
+    familyMember["age"] += 42;
+    familyMember["gender"] = "other";
+  });
+}
+messWithDemographics(munsters);
+console.log('After:');
+console.log(Object.entries(munsters));
 qs += 1;
 ans += 1;
 print('end');
 
 
-/*
 // Qs. 9
 QS = `qs` + qs;
 print('qs');
