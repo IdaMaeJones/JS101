@@ -338,33 +338,76 @@ print('end');
 // Qs. 9
 QS = `qs` + qs;
 print('qs');
-buffer = ` `;
+buffer = `Method calls can take expressions as arguments. Suppose we define a 
+function called rps as follows, which follows the classic rules of the 
+rock-paper-scissors game, but with a slight twist: in the event of a tie, it 
+awards the win to the first of the two fists.
+function rps(fist1, fist2) {
+  if (fist1 === "rock") {
+    return fist2 === "paper" ? "paper" : "rock";
+  } else if (fist1 === "paper") {
+    return fist2 === "scissors" ? "scissors" : "paper";
+  } else {
+    return fist2 === "rock" ? "rock" : "scissors";
+  }
+}
+What is the result of the following call?
+console.log(rps(rps(rps("rock", "paper"), rps("rock", "scissors")), "rock"));`;
 print();
 print('ans');
-buffer = ` `;
+buffer = `The answer should be 'paper'.`;
 print();
-print('code');
-buffer = ` `;
-print();
+// print('code');
+//  = ` `;
+// print();
 print('output');
+function rps(fist1, fist2) {
+  if (fist1 === "rock") {
+    return fist2 === "paper" ? "paper" : "rock";
+  } else if (fist1 === "paper") {
+    return fist2 === "scissors" ? "scissors" : "paper";
+  } else {
+    return fist2 === "rock" ? "rock" : "scissors";
+  }
+}
+console.log(rps(rps(rps("rock", "paper"), rps("rock", "scissors")), "rock"));
 qs += 1;
 ans += 1;
 print('end');
 
 
-/*
 // Qs. 10
 QS = `qs` + qs;
 print('qs');
-buffer = ` `;
+buffer = `Consider these two simple functions:
+function foo(param = "no") {
+  return "yes";
+}
+
+function bar(param = "no") {
+  return param === "no" ? "yes" : "no";
+}
+What will the following function invocation return?
+bar(foo());`;
 print();
 print('ans');
-buffer = ` `;
+buffer = `It will return no as foo returns yes and bar(yes) will return no as
+the parameter for bar is not no.`;
 print();
-print('code');
-buffer = ` `;
-print();
+// print('code');
+// buffer = ` `;
+// print();
 print('output');
+function foo(param = "no") {
+  return "yes";
+}
+
+function bar(param = "no") {
+  return param === "no" ? "yes" : "no";
+}
+
+console.log(bar(foo()));
+
 qs += 1;
 ans += 1;
 print('end');
