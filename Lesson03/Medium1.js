@@ -223,7 +223,6 @@ ans += 1;
 print('end');
 
 
-/*
 // Qs. 6
 QS = `qs` + qs;
 print('qs');
