@@ -1,6 +1,6 @@
 // Launch School
-// JS 101 Lesson 3: Practice Problems
-// Medium1
+// JS 101 Lesson 4: Collections
+// 
 var QS = '';
 //
 // COMMON DISPLAY CODE
