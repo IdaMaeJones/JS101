@@ -120,7 +120,6 @@ b: 2,
 c: 3,
 d: 4
 };
-
 for (var key in object) {
      console.log('current key:', key);
      console.log('current value:', object[key]);
