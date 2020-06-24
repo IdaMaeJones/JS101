@@ -1,8 +1,6 @@
 
 
 
-
-
 let numberOfPets = {
   dogs: 2,
   cats: 4,
