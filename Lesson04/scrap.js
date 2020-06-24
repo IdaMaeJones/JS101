@@ -1,6 +1,50 @@
 
 
 
+
+
+let produce = {
+  apple: 'Fruit',
+  carrot: 'Vegetable',
+  pear: 'Fruit',
+  broccoli: 'Vegetable'
+};
+
+let newKey = 'orange';
+let newValue = 'Fruit';
+
+produce[newKey] = newValue;
+console.log(Object.entries(produce));
+
+
+function selectFruit(inputObject){
+  let fruits = {};
+  for (let key in inputObject) {
+    if (inputObject[key] === 'Fruit') {
+      fruits[key] = inputObject[key];
+    }
+  }
+  return fruits;
+}
+
+console.log(selectFruit(produce)); // => { apple: 'Fruit', pear: 'Fruit' }
+
+/*
+let numbersList = [];
+let LIST_MAX = 10;
+for (let i = 0; i < LIST_MAX; i++){
+  numbersList[i] = Math.round(Math.random()*100);
+}
+console.log(numbersList);
+for (let index = 0; index < numbersList.length; index++){
+  let currentNumber = numbersList[index];
+  if ((currentNumber % 2) === 1) {console.log(currentNumber)}
+}
+
+let sentence = 'I wandered lonely as a cloud';
+sentence;
+
+/*
 let numberOfPets = {
   dogs: 2,
   cats: 4,
