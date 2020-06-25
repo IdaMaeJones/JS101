@@ -1,7 +1,6 @@
 // Launch School
 // JS 101 Lesson 4: Collections
 // Experiments
-var QS = '';
 //
 // COMMON DISPLAY CODE
 const QUESTION = 'QUESTION';
@@ -174,7 +173,6 @@ for (var namedOddlyToMakeAPoint in iceCream) {
 /* TEMPLATE
 /*
 // Qs. 
-QS = `qs` + qs;
 print('qs');
 buffer = ` `;
 print();
