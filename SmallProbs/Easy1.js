@@ -1,6 +1,6 @@
 // Launch School
 // JS 101 Small Problems
-// Easy1
+// Easy 1
 var QS = '';
 //
 // COMMON DISPLAY CODE
@@ -36,7 +36,7 @@ function print(arg) {
 }
 // END DISPLAY CODE
 
-
+/*
 // START
 // Qs. 1
 QS = `qs` + qs;
@@ -49,23 +49,6 @@ print('ans');
 buffer = `isOdd will be coded as follows.`;
 print();
 print('code');
-/*
-PEDAC (Process the Problem, Examples/Test Cases, Data Structures, Algorithm, Code with intent)
-Process the Problem:
-explicit req.
-Function isOdd if supplied an integer as an arg
-implicit req.
-What is the default argument? 
-What if the function is called without an argument?
-What if the argument is not an integer?
-
-Pseudocode:
-isOdd(arg)
-arg mod 2
-if remainder, odd
- else even
-*/
-
 function isOdd(arg) {
   if (arg%2 === 0) {
     return false;
@@ -114,11 +97,6 @@ print('ans');
 buffer = `logOdd will be coded as follows.`;
 print();
 print('code');
-/*
-Function logOdd takes no arguments.
-Loops from 1 to 99.
-If number odd, logs to console.
-*/
 function logOdd(arg = 1) {
   do {
     if (isOdd(arg)) {
@@ -155,11 +133,6 @@ print('ans');
 buffer = `logEven will be coded as follows.`;
 print();
 print('code');
-/*
-Function logEven takes no arguments.
-Loops from 1 to 99.
-If number even, logs to console.
-*/
 function logEven(arg = 1) {
   do {
     if (!isOdd(arg)) {
@@ -200,17 +173,37 @@ print('ans');
 buffer = `logArea will be coded as follows.`;
 print();
 print('code');
-/*
-Function logEven takes no arguments.
-Loops from 1 to 99.
-If number even, logs to console.
-*/
-
-function logArea(argument) {
-  // body...
+function logArea() {
+  let rlSync = require('readline-sync');
+  let length = rlSync.question("What is the length?\n");
+  while(isNaN(length) || length < 0) {
+    length = rlSync.question("Please enter a positive number for length. \n");
+  }
+  let width = rlSync.question("What is the width?\n");
+  while(isNaN(width) || width < 0) {
+    width = rlSync.question("Please enter a positive number for width. \n");
+  }
+  let areaSqMeters = length * width;
+  let areaSqFeet = (areaSqMeters * 10.7639) ;
+  console.log(`Area in square meters is ${areaSqMeters} sq. m.
+Area in square feet is ${areaSqFeet.toFixed(2)} sq. ft.`);
 }
 
-buffer = ` `;
+buffer = `function logArea() {
+  let rlSync = require('readline-sync');
+  let length = rlSync.question("What is the length?\n");
+  while(isNaN(length) || length < 0) {
+    length = rlSync.question("Please enter a positive number for length. \n");
+  }
+  let width = rlSync.question("What is the width?\n");
+  while(isNaN(width) || width < 0) {
+    width = rlSync.question("Please enter a positive number for width. \n");
+  }
+  let areaSqMeters = length * width;
+  let areaSqFeet = (areaSqMeters / 10.7639) ;
+  console.log(\`Area in square meters is \${areaSqMeters} sq. m.
+Area in square feet is \${areaSqFeet.toFixed(2)} sq. ft.\`);
+}`;
 print();
 print('output');
 buffer = `Testing \n
@@ -219,6 +212,77 @@ logArea();
 qs += 1;
 ans += 1;
 print('end');
+*/
+
+// Qs. 5
+QS = `qs` + qs;
+print('qs');
+buffer = `Create a simple tip calculator. The program should prompt for a bill 
+amount and a tip rate. The program must compute the tip, and then log both the 
+tip and the total amount of the bill to the console. You can ignore input 
+validation and assume that the user will enter numbers.`;
+print();
+print('ans');
+buffer = `tipCalculator will be coded as follows.`;
+print();
+print('code');
+function tipCalculator() {
+  let rlSync = require('readline-sync');
+  // bill
+  let bill = rlSync.question("What is the bill?\n");
+  if (bill.charAt(0) === '$') {
+    bill = bill.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') ;
+    bill = parseInt(bill.substr(1, bill.length-1), 10) ;
+  } else {
+    bill = bill.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') ;
+    bill = parseInt(bill.substr(0, bill.length), 10) ;
+    console.log(bill) ;
+  }
+  while(isNaN(bill) || bill < 0) {
+    tipPct = rlSync.question("Please enter a positive number for bill. \n");
+    if (tipPct.charAt(0) === '$') {
+      tipPct = tipPct.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') ;
+      tipPct = parseInt(tipPct.substr(1, tipPct.length-1), 10) ;
+      } 
+  }
+  while(isNaN(bill) || bill < 0) {
+    bill = rlSync.question("Please enter a positive number for bill. \n");
+  }
+  // tip percentage
+  let tipPct = rlSync.question("What is the tip percentage?\n");
+  if (tipPct.charAt(tipPct.length-1) === '%') {
+    tipPct = tipPct.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') ;
+    tipPct = parseInt(tipPct.substr(0, tipPct.length-1), 10) ;
+  }
+  while(isNaN(tipPct) || tipPct < 0) {
+    tipPct = rlSync.question("Please enter a positive number for tip %. \n");
+    if (tipPct.charAt(tipPct.length-1) === '%') {
+      tipPct = tipPct.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') ;
+      tipPct = parseInt(tipPct.substr(0, tipPct.length-1), 10) ;
+      } 
+  }
+  let tip = bill * tipPct / 100;
+  let totalBill = (bill + tip) ;
+  console.log(`The tip is \$${tip.toFixed(2)}
+The total bill is ${totalBill}
+bill is ${typeof(bill)}
+tipPct is ${typeof(tipPct)}
+tip is ${typeof(tip)}
+totalBill is ${typeof(totalBill)}
+`);
+}
+
+buffer = ` `;
+print();
+print('output');
+buffer = `Testing \n
+....................`;
+tipCalculator();
+qs += 1;
+ans += 1;
+print('end');
+
+
 
 
 /* TEMPLATE
