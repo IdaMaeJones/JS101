@@ -212,7 +212,7 @@ logArea();
 qs += 1;
 ans += 1;
 print('end');
-*/
+
 
 // Qs. 5
 QS = `qs` + qs;
@@ -270,14 +270,84 @@ function tipCalculator() {
 buffer = ` `;
 print();
 print('output');
-buffer = `Testing \n
-....................`;
 tipCalculator();
 qs += 1;
 ans += 1;
 print('end');
+*/
+
+// Qs. 6
+QS = `qs` + qs;
+print('qs');
+buffer = `Write a program that asks the user to enter an integer greater than 0,
+then asks whether the user wants to determine the sum or the product of all 
+numbers between 1 and the entered integer, inclusive.
+EXAMPLES:
+Please enter an integer greater than 0: 5
+Enter "s" to compute the sum, or "p" to compute the product. s
+
+The sum of the integers between 1 and 5 is 15.
+
+Please enter an integer greater than 0: 6
+Enter "s" to compute the sum, or "p" to compute the product. p
+
+The product of the integers between 1 and 6 is 720.`;
+print();
+print('ans');
+buffer = `intFunction() - Sum or Product of Consecutive Integers will be coded 
+as follows.`;
+print();
+print('code');
+const VALID_CONSECUTIVE_FUNCTION_CHOICES = ['s', 'S', 'p', 'P'];
+function intFunction() {
+  let rlSync = require('readline-sync');
+  let userInt = Number(rlSync.question("Please enter an integer greater than 0: "), 10);
+  while (((!Number.isInteger(userInt)) || isNaN(userInt)) || ((userInt <= 0) || isNaN(userInt))) {
+    userInt = Number(rlSync.question("That is not a valid input. Please enter an integer greater than 0: "), 10);
+  }
+
+  let userChoice = rlSync.question("Enter \"s\" to compute the sum, or \"p\" to compute the product: ");
+  while (!VALID_CONSECUTIVE_FUNCTION_CHOICES.includes(userChoice)) {
+    userChoice = rlSync.question("That is not a valid choice. Enter \"s\" to compute the sum, or \"p\" to compute the product: ");
+  }
+
+  switch (userChoice) {
+    case 's':
+      sumIntegers(userInt);
+      break;
+    case 'p':
+      productIntegers(userInt);
+      break;
+    default:
+      console.log("Could not determine what to do.");
+  }
+}
 
 
+function sumIntegers(arg) {
+  let sum = arg;
+  for (var i = arg-1; i > 0; i--) {
+    sum = sum + i;
+  }
+  console.log(`\nThe sum of the integers between 1 and ${arg} is ${sum}.`);
+}
+
+
+function productIntegers(arg) {
+  let product = arg;
+  for (var i = arg-1; i > 0; i--) {
+    product = product * i;
+  }
+  console.log(`\nThe product of the integers between 1 and ${arg} is ${product}.`);
+}
+
+buffer = ` `;
+print();
+print('output');
+intFunction();
+qs += 1;
+ans += 1;
+print('end');
 
 
 /* TEMPLATE
