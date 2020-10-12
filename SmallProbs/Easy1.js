@@ -274,7 +274,7 @@ tipCalculator();
 qs += 1;
 ans += 1;
 print('end');
-*/
+
 
 // Qs. 6
 QS = `qs` + qs;
@@ -345,6 +345,50 @@ buffer = ` `;
 print();
 print('output');
 intFunction();
+qs += 1;
+ans += 1;
+print('end');
+*/
+
+// Qs. 7
+QS = `qs` + qs;
+print('qs');
+buffer = `Write a function that takes two strings as arguments, determines the 
+longer of the two strings, and then returns the result of concatenating the 
+shorter string, the longer string, and the shorter string once again. You may 
+assume that the strings are of different lengths.
+EXAMPLES
+shortLongShort('abc', 'defgh');    // "abcdefghabc"
+shortLongShort('abcde', 'fgh');    // "fghabcdefgh"
+shortLongShort('', 'xyz');         // "xyz"`;
+print();
+print('ans');
+buffer = `shortLongShort(arg1, arg2) - Short Long Short is as follows.`;
+print();
+print('code');
+function shortLongShort(arg1, arg2) {
+  let returnVal;
+  if (arg1.length > arg2.length) {
+    returnVal = arg2 + arg1 + arg2;
+  } else {
+    returnVal = arg1 + arg2 + arg1;
+  }
+  console.log(returnVal);
+}
+
+
+buffer = ` `;
+print();
+print('output');
+let str1 = 'abc';
+let str2 = 'defgh';
+let str3 = 'abcde';
+let str4 = 'fgh';
+let str5 = '';
+let str6 = 'xyz';
+shortLongShort(str1, str2);
+shortLongShort(str3, str4);
+shortLongShort(str5, str6);
 qs += 1;
 ans += 1;
 print('end');
