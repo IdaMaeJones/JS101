@@ -232,44 +232,39 @@ function tipCalculator() {
   let bill = rlSync.question("What is the bill?\n");
   if (bill.charAt(0) === '$') {
     bill = bill.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') ;
-    bill = parseInt(bill.substr(1, bill.length-1), 10) ;
-  } else {
-    bill = bill.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') ;
-    bill = parseInt(bill.substr(0, bill.length), 10) ;
-    console.log(bill) ;
-  }
-  while(isNaN(bill) || bill < 0) {
-    tipPct = rlSync.question("Please enter a positive number for bill. \n");
-    if (tipPct.charAt(0) === '$') {
-      tipPct = tipPct.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') ;
-      tipPct = parseInt(tipPct.substr(1, tipPct.length-1), 10) ;
-      } 
+    bill = Number(bill.substr(1, bill.length-1), 10) ;
   }
   while(isNaN(bill) || bill < 0) {
     bill = rlSync.question("Please enter a positive number for bill. \n");
+    if (bill.charAt(0) === '$') {
+      bill = bill.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') ;
+      bill = Number(bill.substr(1, bill.length-1), 10) ;
+      } 
   }
+  bill = Number(bill, 10);
+  console.log(`Accepted bill amount ${bill}.`);
   // tip percentage
   let tipPct = rlSync.question("What is the tip percentage?\n");
   if (tipPct.charAt(tipPct.length-1) === '%') {
-    tipPct = tipPct.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') ;
-    tipPct = parseInt(tipPct.substr(0, tipPct.length-1), 10) ;
+    tipPct = tipPct.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]/g, '') ;
+    tipPct = Number(tipPct.substr(0, tipPct.length-1), 10) ;
   }
   while(isNaN(tipPct) || tipPct < 0) {
     tipPct = rlSync.question("Please enter a positive number for tip %. \n");
     if (tipPct.charAt(tipPct.length-1) === '%') {
       tipPct = tipPct.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') ;
-      tipPct = parseInt(tipPct.substr(0, tipPct.length-1), 10) ;
+      tipPct = Number(tipPct.substr(0, tipPct.length-1), 10) ;
       } 
   }
-  let tip = bill * tipPct / 100;
+  console.log(`Accepted tip percentage ${tipPct}.`);
+  let tip = bill * tipPct / 100; // Comment 
+  console.log(`Calculated tip ${tip}.`);
   let totalBill = (bill + tip) ;
-  console.log(`The tip is \$${tip.toFixed(2)}
-The total bill is ${totalBill}
-bill is ${typeof(bill)}
-tipPct is ${typeof(tipPct)}
-tip is ${typeof(tip)}
-totalBill is ${typeof(totalBill)}
-`);
+  console.log(`Calculated totalBill ${totalBill}.`);
+  console.log(`OUTPUT: Bill amount used is $${(Math.round(bill * 100) / 100).toFixed(2)}
+        Tip percentage used is ${tipPct}%
+        Tip calculated is $${(Math.round(tip * 100) / 100).toFixed(2)}
+        Total bill amount (bill + tip) calculated is $${(Math.round(totalBill * 100) / 100).toFixed(2)}`);
 }
 
 buffer = ` `;
