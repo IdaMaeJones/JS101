@@ -631,6 +631,23 @@ ans += 1;
 print('end');
 
 
+function asciiValue(string) {
+  let sum = 0;
+
+  for (let idx = 0; idx < string.length; idx += 1) {
+    sum += string.charCodeAt(idx);
+  }
+
+  return sum;
+}
+
+asciiValue('Four score');         // 984
+asciiValue('Launch School');      // 1251
+asciiValue('a');                  // 97
+asciiValue('');                   // 0
+
+
+
 /* TEMPLATE
 /*
 // Qs. 
