@@ -348,7 +348,7 @@ intFunction();
 qs += 1;
 ans += 1;
 print('end');
-*/
+
 
 // Qs. 7
 QS = `qs` + qs;
@@ -389,6 +389,178 @@ let str6 = 'xyz';
 shortLongShort(str1, str2);
 shortLongShort(str3, str4);
 shortLongShort(str5, str6);
+qs += 1;
+ans += 1;
+print('end');
+
+
+// Qs. 8
+QS = `qs` + qs;
+print('qs');
+buffer = `In the modern era under the Gregorian Calendar, leap years occur in 
+every year that is evenly divisible by 4, unless the year is also divisible by 
+100. If the year is evenly divisible by 100, then it is not a leap year, unless 
+the year is also evenly divisible by 400.
+
+Assume this rule is valid for any year greater than year 0. Write a function 
+that takes any year greater than 0 as input, and returns true if the year is a 
+leap year, or false if it is not a leap year.`;
+print();
+print('ans');
+buffer = `isLeapYear(arg1) - Returns true if arg1 is leap year, false otherwise.`;
+print();
+print('code');
+buffer = `PEDAC
+Problem: Is given year a leap year? Return true or false.
+Examples/Edge & Test Cases:
+isLeapYear(2016);      // true
+isLeapYear(2015);      // false
+isLeapYear(2100);      // false
+isLeapYear(2400);      // true
+isLeapYear(240000);    // true
+isLeapYear(240001);    // false
+isLeapYear(2000);      // true
+isLeapYear(1900);      // false
+isLeapYear(1752);      // true
+isLeapYear(1700);      // false
+isLeapYear(1);         // false
+isLeapYear(100);       // false
+isLeapYear(400);       // true
+Data Structure:
+  isLeapYear(arg1);
+  arg1 - number
+  answerLeapYr - boolean answer
+Algorithm:
+  arg1 divisible by 4?
+  arg1 divisible by 100?
+  arg1 divisible by 400?
+Code:
+  if (arg1%4 != 0) answer = false
+    else if (arg1%100 != 0) answer = true  // div by 4, not div by 100
+          else if (arg1%400 != 0) answer = false  // div by 100, not div by 400
+                else answer = true  // div by 100, div by 400`;
+print();
+function isLeapYear(arg1) {
+  let answerLeapYr;
+  if (arg1%4 != 0) {
+    answerLeapYr = false;
+  } else {
+    if (arg1%100 != 0) {
+      answerLeapYr = true;
+    } else {
+      if (arg1%400 != 0) {
+        answerLeapYr = false;
+      } else {
+        answerLeapYr = true;
+      }
+    }
+  }
+  return answerLeapYr;
+}
+
+
+buffer = ` `;
+print();
+print('output');
+let str1 = 'abc';
+let str2 = 'defgh';
+let str3 = 'abcde';
+let str4 = 'fgh';
+let str5 = '';
+let str6 = 'xyz';
+let TEST_YEARS = [2016, 2015, 2100, 2400, 240000, 240001, 2000, 1900, 1752, 
+1700, 1, 100, 400] ;
+let TEST_RESULTS = [true, false, false, true, true, false, true, false, true, false, false, false, true];
+for (var i = TEST_RESULTS.length; i--; ) {
+  isLeapYear(1);
+  console.log(`isLeapYear(${TEST_YEARS[i]}) is ${isLeapYear(TEST_YEARS[i])} ... ${TEST_RESULTS[i]}.`);
+}
+qs += 1;
+ans += 1;
+print('end');
+*/
+
+// Qs. 9
+QS = `qs` + qs;
+print('qs');
+buffer = `In the modern era under the Gregorian Calendar, leap years occur in 
+every year that is evenly divisible by 4, unless the year is also divisible by 
+100. If the year is evenly divisible by 100, then it is not a leap year, unless 
+the year is also evenly divisible by 400.
+
+Assume this rule is valid for any year greater than year 0. Write a function 
+that takes any year greater than 0 as input, and returns true if the year is a 
+leap year, or false if it is not a leap year.`;
+print();
+print('ans');
+buffer = `isLeapYear(arg1) - Returns true if arg1 is leap year, false otherwise.`;
+print();
+print('code');
+buffer = `PEDAC
+Problem: Is given year a leap year? Return true or false.
+Examples/Edge & Test Cases:
+isLeapYear(2016);      // true
+isLeapYear(2015);      // false
+isLeapYear(2100);      // false
+isLeapYear(2400);      // true
+isLeapYear(240000);    // true
+isLeapYear(240001);    // false
+isLeapYear(2000);      // true
+isLeapYear(1900);      // false
+isLeapYear(1752);      // true
+isLeapYear(1700);      // false
+isLeapYear(1);         // false
+isLeapYear(100);       // false
+isLeapYear(400);       // true
+Data Structure:
+  isLeapYear(arg1);
+  arg1 - number
+  answerLeapYr - boolean answer
+Algorithm:
+  arg1 divisible by 4?
+  arg1 divisible by 100?
+  arg1 divisible by 400?
+Code:
+  if (arg1%4 != 0) answer = false
+    else if (arg1%100 != 0) answer = true  // div by 4, not div by 100
+          else if (arg1%400 != 0) answer = false  // div by 100, not div by 400
+                else answer = true  // div by 100, div by 400`;
+print();
+function isLeapYear(arg1) {
+  let answerLeapYr;
+  if (arg1%4 != 0) {
+    answerLeapYr = false;
+  } else {
+    if (arg1%100 != 0) {
+      answerLeapYr = true;
+    } else {
+      if (arg1%400 != 0) {
+        answerLeapYr = false;
+      } else {
+        answerLeapYr = true;
+      }
+    }
+  }
+  return answerLeapYr;
+}
+
+
+buffer = ` `;
+print();
+print('output');
+let str1 = 'abc';
+let str2 = 'defgh';
+let str3 = 'abcde';
+let str4 = 'fgh';
+let str5 = '';
+let str6 = 'xyz';
+let TEST_YEARS = [2016, 2015, 2100, 2400, 240000, 240001, 2000, 1900, 1752, 
+1700, 1, 100, 400] ;
+let TEST_RESULTS = [true, false, false, true, true, false, true, false, true, false, false, false, true];
+for (var i = TEST_RESULTS.length; i--; ) {
+  isLeapYear(1);
+  console.log(`isLeapYear(${TEST_YEARS[i]}) is ${isLeapYear(TEST_YEARS[i])} ... ${TEST_RESULTS[i]}.`);
+}
 qs += 1;
 ans += 1;
 print('end');
