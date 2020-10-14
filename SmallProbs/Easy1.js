@@ -407,7 +407,7 @@ that takes any year greater than 0 as input, and returns true if the year is a
 leap year, or false if it is not a leap year.`;
 print();
 print('ans');
-buffer = `isLeapYear(arg1) - Returns true if arg1 is leap year, false otherwise.`;
+buffer = `isLeapYear(arg1) - Returns true if arg1 leap year, false otherwise.`;
 print();
 print('code');
 buffer = `PEDAC
@@ -464,14 +464,15 @@ print();
 print('output');
 let TEST_YEARS = [2016, 2015, 2100, 2400, 240000, 240001, 2000, 1900, 1752, 
 1700, 1, 100, 400] ;
-let TEST_RESULTS = [true, false, false, true, true, false, true, false, true, false, false, false, true];
+let TEST_RESULTS = [true, false, false, true, true, false, true, false, true, 
+false, false, false, true];
 for (var i = TEST_RESULTS.length; i--; ) {
   console.log(`isLeapYear(${TEST_YEARS[i]}) is ${isLeapYear(TEST_YEARS[i])} ... ${TEST_RESULTS[i]}.`);
 }
 qs += 1;
 ans += 1;
 print('end');
-*/
+
 
 // Qs. 9
 QS = `qs` + qs;
@@ -486,11 +487,13 @@ Using this information, update the function from the previous exercise to
 determine leap years both before and after 1752.`;
 print();
 print('ans');
-buffer = `isLeapYear2(arg1) - Returns true if arg1 is leap year, false otherwise.`;
+buffer = `isLeapYear2(arg1) - Returns true if arg1 leap year, false otherwise.`;
 print();
 print('code');
 buffer = `PEDAC
-Problem: Is given year a leap year? Return true or false.
+Problem: Is given year a leap year? Return true or false. Take 1752 adoption
+of Gregorian calendar into account. Any years prior to 1752 should be determined
+per Julian calendar.
 Examples/Edge & Test Cases:
 isLeapYear(2016);      // true
 isLeapYear(2015);      // false
@@ -523,7 +526,7 @@ Code:
                 else answer = true  // div by 100, div by 400`;
 print();
 function isLeapYear2(arg1) {
-  let answerLeapYr
+  let answerLeapYr;
   if (arg1 < 1752) {
     if (arg1%4 != 0) {
       answerLeapYr = false;
@@ -554,9 +557,74 @@ print();
 print('output');
 let TEST_YEARS = [2016, 2015, 2100, 2400, 240000, 240001, 2000, 1900, 1752, 
 1700, 1, 100, 400] ;
-let TEST_RESULTS = [true, false, false, true, true, false, true, false, true, true, false, true, true];
+let TEST_RESULTS = [true, false, false, true, true, false, true, false, true, 
+true, false, true, true];
 for (var i = TEST_RESULTS.length; i--; ) {
   console.log(`isLeapYear2(${TEST_YEARS[i]}) is ${isLeapYear2(TEST_YEARS[i])} ... ${TEST_RESULTS[i]}.`);
+}
+qs += 1;
+ans += 1;
+print('end');
+*/
+
+// Qs. 10
+QS = `qs` + qs;
+print('qs');
+buffer = `Write a function that computes the sum of all numbers between 1 and 
+some other number, inclusive, that are multiples of 3 or 5. For instance, if the
+supplied number is 20, the result should be 98 
+(3 + 5 + 6 + 9 + 10 + 12 + 15 + 18 + 20).
+You may assume that the number passed in is an integer greater than 1..`;
+print();
+print('ans');
+buffer = `multisum(arg1) - Returns true if arg1 leap year, false otherwise.`;
+print();
+print('code');
+buffer = `PEDAC
+Problem: Sum all multiples of 3 or 5 up to a given input.
+Examples/Edge & Test Cases:
+multisum(3);       // 3
+multisum(5);       // 8
+multisum(10);      // 33
+multisum(1000);    // 234168
+Data Structure:
+  multisum(arg);
+  arg - number (assume integer greater than 1)
+  answerSum - number
+Algorithm:
+ for i = 0, i <= arg, i++
+  i%3 === 0 - add i to answer
+  if not i%3 === 0, i%5 === 0 - add i to answer
+Code:
+  if i%3 != 0  // not div by 3, check 5
+      if i%5 != 0  // not div by 5
+        else add i to answer  // div by 5, add to answer
+    else add i to answer  // div by 3, add to answer
+  `;
+print();
+function multisum(arg) {
+  let answerSum = 0;
+  for (var i = arg; i >= 0; i--) {
+    if (i%3 != 0) {
+      if (i%5 != 0) {
+      } else {
+        answerSum += i ;
+      }
+    } else {
+      answerSum += i ;
+    }
+  }
+  return answerSum;
+}
+
+
+buffer = ` `;
+print();
+print('output');
+let TEST_CASES = [2, 3, 5, 10, 1000] ;
+let TEST_SUMS = [0, 3, 8, 33, 234168];
+for (var i = TEST_SUMS.length; i--; ) {
+  console.log(`multisum(${TEST_CASES[i]}) is ${multisum(TEST_CASES[i])} ... ${TEST_SUMS[i]}.`);
 }
 qs += 1;
 ans += 1;
