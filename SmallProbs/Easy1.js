@@ -638,7 +638,7 @@ function asciiValue(string) {
     sum += string.charCodeAt(idx);
   }
 
-  return sum;
+  console.log(sum);
 }
 
 asciiValue('Four score');         // 984
