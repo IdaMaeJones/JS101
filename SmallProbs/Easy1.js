@@ -462,17 +462,10 @@ function isLeapYear(arg1) {
 buffer = ` `;
 print();
 print('output');
-let str1 = 'abc';
-let str2 = 'defgh';
-let str3 = 'abcde';
-let str4 = 'fgh';
-let str5 = '';
-let str6 = 'xyz';
 let TEST_YEARS = [2016, 2015, 2100, 2400, 240000, 240001, 2000, 1900, 1752, 
 1700, 1, 100, 400] ;
 let TEST_RESULTS = [true, false, false, true, true, false, true, false, true, false, false, false, true];
 for (var i = TEST_RESULTS.length; i--; ) {
-  isLeapYear(1);
   console.log(`isLeapYear(${TEST_YEARS[i]}) is ${isLeapYear(TEST_YEARS[i])} ... ${TEST_RESULTS[i]}.`);
 }
 qs += 1;
@@ -483,17 +476,17 @@ print('end');
 // Qs. 9
 QS = `qs` + qs;
 print('qs');
-buffer = `In the modern era under the Gregorian Calendar, leap years occur in 
-every year that is evenly divisible by 4, unless the year is also divisible by 
-100. If the year is evenly divisible by 100, then it is not a leap year, unless 
-the year is also evenly divisible by 400.
+buffer = `This is a continuation of the previous exercise.
 
-Assume this rule is valid for any year greater than year 0. Write a function 
-that takes any year greater than 0 as input, and returns true if the year is a 
-leap year, or false if it is not a leap year.`;
+The British Empire adopted the Gregorian Calendar in 1752, which was a leap 
+year. Prior to 1752, they used the Julian Calendar. Under the Julian Calendar, 
+leap years occur in any year that is evenly divisible by 4.
+
+Using this information, update the function from the previous exercise to 
+determine leap years both before and after 1752.`;
 print();
 print('ans');
-buffer = `isLeapYear(arg1) - Returns true if arg1 is leap year, false otherwise.`;
+buffer = `isLeapYear2(arg1) - Returns true if arg1 is leap year, false otherwise.`;
 print();
 print('code');
 buffer = `PEDAC
@@ -508,12 +501,12 @@ isLeapYear(240001);    // false
 isLeapYear(2000);      // true
 isLeapYear(1900);      // false
 isLeapYear(1752);      // true
-isLeapYear(1700);      // false
+isLeapYear(1700);      // true (false in Georgian)
 isLeapYear(1);         // false
-isLeapYear(100);       // false
+isLeapYear(100);       // true (false in Georgian)
 isLeapYear(400);       // true
 Data Structure:
-  isLeapYear(arg1);
+  isLeapYear2(arg1);
   arg1 - number
   answerLeapYr - boolean answer
 Algorithm:
@@ -521,26 +514,37 @@ Algorithm:
   arg1 divisible by 100?
   arg1 divisible by 400?
 Code:
-  if (arg1%4 != 0) answer = false
+  if (arg1 < 1752)
+    if (arg1%4 != 0) answer = false
+      else answer = true
+    else if (arg1%4 != 0) answer = false
     else if (arg1%100 != 0) answer = true  // div by 4, not div by 100
           else if (arg1%400 != 0) answer = false  // div by 100, not div by 400
                 else answer = true  // div by 100, div by 400`;
 print();
-function isLeapYear(arg1) {
-  let answerLeapYr;
-  if (arg1%4 != 0) {
-    answerLeapYr = false;
-  } else {
-    if (arg1%100 != 0) {
-      answerLeapYr = true;
+function isLeapYear2(arg1) {
+  let answerLeapYr
+  if (arg1 < 1752) {
+    if (arg1%4 != 0) {
+      answerLeapYr = false;
     } else {
-      if (arg1%400 != 0) {
-        answerLeapYr = false;
-      } else {
-        answerLeapYr = true;
-      }
+      answerLeapYr = true;
     }
-  }
+  } else {
+      if (arg1%4 != 0) {
+      answerLeapYr = false;
+      } else {
+        if (arg1%100 != 0) {
+          answerLeapYr = true;
+          } else {
+            if (arg1%400 != 0) {
+              answerLeapYr = false;
+              } else {
+                answerLeapYr = true;
+                }
+            }
+        }
+    }
   return answerLeapYr;
 }
 
@@ -548,18 +552,11 @@ function isLeapYear(arg1) {
 buffer = ` `;
 print();
 print('output');
-let str1 = 'abc';
-let str2 = 'defgh';
-let str3 = 'abcde';
-let str4 = 'fgh';
-let str5 = '';
-let str6 = 'xyz';
 let TEST_YEARS = [2016, 2015, 2100, 2400, 240000, 240001, 2000, 1900, 1752, 
 1700, 1, 100, 400] ;
-let TEST_RESULTS = [true, false, false, true, true, false, true, false, true, false, false, false, true];
+let TEST_RESULTS = [true, false, false, true, true, false, true, false, true, true, false, true, true];
 for (var i = TEST_RESULTS.length; i--; ) {
-  isLeapYear(1);
-  console.log(`isLeapYear(${TEST_YEARS[i]}) is ${isLeapYear(TEST_YEARS[i])} ... ${TEST_RESULTS[i]}.`);
+  console.log(`isLeapYear2(${TEST_YEARS[i]}) is ${isLeapYear2(TEST_YEARS[i])} ... ${TEST_RESULTS[i]}.`);
 }
 qs += 1;
 ans += 1;
