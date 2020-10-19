@@ -35,7 +35,7 @@ function selectFruit(produceList, produceType) {
   //   String - currentValue
   // Code:
   //   
-  let produceKeys = Object.keys(produceList) ;
+  // let produceKeys = Object.keys(produceList) ;
   let fruitsList = {} ;
 
   for (var groceryItem in produceList) {
@@ -45,6 +45,6 @@ function selectFruit(produceList, produceType) {
       if (produceList[groceryItem] === produceType) fruitsList[currentKey] = currentValue;
     }
   }
-  console.log(produceKeys) ;
+  // console.log(produceKeys) ;
   return fruitsList ;
 }
