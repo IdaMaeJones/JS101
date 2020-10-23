@@ -1,3 +1,4 @@
+/*
 var items = [
   { name: 'Edward', value: 21 },
   { name: 'Sharpe', value: 37 },
@@ -41,3 +42,57 @@ itemsByName.sort(function(a, b) {
 });
 console.log(itemsByName);
 console.log(items);
+*/
+
+/*
+let words = ['go', 'ahead', 'and', 'jump'];
+console.log(`Original array of words:`);
+console.log(words) ;
+console.log(`Ascending sort by word length:`);
+console.log(words.slice().sort( (a, b) => a.length - b.length )) ;
+
+let numArray = [12, -10, 680, 2356, 5, 1];
+console.log(`Original array:`);
+console.log(numArray) ;
+// numerical sorting ascending - compact code
+console.log(`Ascending sort array:`);
+console.log(numArray.slice().sort( (a, b) => a - b )) ;
+
+// numerical sorting descending - compact code
+console.log(`Original array:`);
+console.log(numArray) ;
+console.log(`Descending sort array:`);
+console.log(numArray.slice().sort( (a, b) => b - a )) ;
+*/
+
+// Array of scores of 4 players
+let scores = [ [ 1, 4, 2 ], [ 3, 6, 4 ], [ 6, 8, 9 ], [ 0, 3, 2 ] ];
+
+// sorting array of scores by value of total score of each player
+console.log(`Scores:`);
+console.log(scores);
+
+let newScores = scores.slice();
+
+newScores.sort( (a, b) => {
+  let aTotal = a.reduce((acc, cur) => acc + cur);
+  let bTotal = b.reduce((acc, cur) => acc + cur);
+  return aTotal - bTotal;
+}
+);
+
+console.log(`newScores - Scores sorted by total score of each player:`);
+console.log(newScores);
+
+
+// Shallow and Deep Copy Experiments
+let arr = [['a'], ['b'], ['c'] ];
+let copyArr = [...arr];
+console.log(`Array arr is:`);
+console.log(arr);
+console.log(`Array copyArr, which is a copy of Array arr, is:`);
+console.log(copyArr);
+console.log(`Modifiying copyArr by copyArr[1] = ['d']:`);
+copyArr[1] = ['d'];
+console.log(copyArr);
+
