@@ -259,7 +259,7 @@ console.log(ageTotal);
 qs += 1;
 ans += 1;
 print('end');
-*/
+
 
 // Qs. 6
 QS = `qs` + qs;
@@ -320,6 +320,203 @@ Object.entries(munsters).forEach(member => {
   memberGender = member[1]['gender'];
   console.log(`${memberName} is a ${memberAge}-year-old ${memberGender}.`);
 }) ;
+qs += 1;
+ans += 1;
+print('end');
+
+
+// Qs. 7
+QS = `qs` + qs;
+print('qs');
+buffer = `Given the following code, what will the final values of a and b be? 
+Try to answer without running the code.
+let a = 2;
+let b = [5, 8];
+let arr = [a, b];
+
+arr[0] += 2;
+arr[1][0] -= a;`;
+print();
+print('ans');
+buffer = `I would expect a to be unchanged and b to be [3, 8].`;
+print();
+print('code');
+buffer = ``;
+print();
+
+let a = 2;
+let b = [5, 8];
+let arr = [a, b];
+
+arr[0] += 2;
+arr[1][0] -= a;
+
+buffer = ` `;
+print();
+print('output');
+console.log(`a:`);
+console.log(a);
+console.log(`b:`);
+console.log(b);
+console.log(`arr:`);
+console.log(arr);
+qs += 1;
+ans += 1;
+print('end');
+
+
+// Qs. 8
+QS = `qs` + qs;
+print('qs');
+buffer = `Using the forEach method, write some code to output all vowels from
+the strings in the arrays. Don't use a for or while loop.
+let obj = {
+  first: ['the', 'quick'],
+  second: ['brown', 'fox'],
+  third: ['jumped'],
+  fourth: ['over', 'the', 'lazy', 'dog'],
+};`;
+print();
+print('ans');
+buffer = ``;
+print();
+print('code');
+buffer = `Object.values(obj).forEach(arr => {
+  arr.forEach(str => {
+    str.split('').forEach(char => {
+      if (vowels.includes(char)) {
+        console.log(char);
+      }
+    });
+  });
+});`;
+print();
+let obj = {
+  first: ['the', 'quick'],
+  second: ['brown', 'fox'],
+  third: ['jumped'],
+  fourth: ['over', 'the', 'lazy', 'dog'],
+};
+
+let vowels = 'aeiou';
+
+print('output');
+Object.values(obj).forEach(arr => {
+  arr.forEach(str => {
+    str.split('').forEach(char => {
+      if (vowels.includes(char)) {
+        console.log(char);
+      }
+    });
+  });
+});
+qs += 1;
+ans += 1;
+print('end');
+
+
+// Qs. 9
+QS = `qs` + qs;
+print('qs');
+buffer = `Given the following data structure, return a new array with the same 
+structure, but with the subarrays ordered -- alphabetically or numerically as 
+appropriate -- in ascending order.
+let arr = [['b', 'c', 'a'], [2, 1, 3], ['blue', 'black', 'green']];
+`;
+print();
+print('ans');
+buffer = ` `;
+print();
+print('code');
+buffer = ` `;
+print();
+let arr100 = [['b', 'c', 'a'], [2, 1, 3], ['blue', 'black', 'green']];
+
+let arrCopy1 = arr100.map(element => {
+  return element.slice().sort( (a, b) => {
+    if (typeof a === 'number') {
+      return a - b ;
+    } else {
+      if (a > b) {
+        return 1 ;
+      } else {
+        if (a < b) {
+          return -1 ;
+        } else {
+          return 0 ;
+        }
+      }
+    }
+  });
+}) ;
+
+print('output');
+console.log(`Original array arr100:`);
+console.log(arr100);
+console.log(`Sorted array copy:`);
+console.log(arrCopy1);
+qs += 1;
+ans += 1;
+print('end');
+
+
+// Qs. 10
+QS = `qs` + qs;
+print('qs');
+buffer = `Given the following data structure, return a new array with the same 
+structure, but with the subarrays ordered -- alphabetically or numerically as 
+appropriate -- in ascending order.
+let arr = [['b', 'c', 'a'], [2, 1, 3], ['blue', 'black', 'green']];
+`;
+print();
+print('ans');
+buffer = ` `;
+print();
+print('code');
+buffer = ` `;
+print();
+let arr200 = [['b', 'c', 'a'], [2, 1, 3], ['blue', 'black', 'green']];
+
+let arrCopy2 = arr200.map(element => {
+  return element.slice().sort( (a, b) => {
+    if (typeof a === 'number') {
+      return b - a ;
+    } else {
+      if (a < b) {
+        return 1 ;
+      } else {
+        if (a > b) {
+          return -1 ;
+        } else {
+          return 0 ;
+        }
+      }
+    }
+  });
+}) ;
+
+print('output');
+console.log(`Original array arr:`);
+console.log(arr200);
+console.log(`Sorted array copy:`);
+console.log(arrCopy2);
+qs += 1;
+ans += 1;
+print('end');
+*/
+
+// Qs. 11
+QS = `qs` + qs;
+print('qs');
+buffer = ` `;
+print();
+print('ans');
+buffer = ` `;
+print();
+print('code');
+buffer = ` `;
+print();
+print('output');
 qs += 1;
 ans += 1;
 print('end');
