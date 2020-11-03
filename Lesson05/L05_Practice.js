@@ -503,23 +503,90 @@ console.log(arrCopy2);
 qs += 1;
 ans += 1;
 print('end');
-*/
+
 
 // Qs. 11
 QS = `qs` + qs;
 print('qs');
-buffer = ` `;
+buffer = ` Given the following data structure, use the map method to return a 
+new array identical in structure to the original but, with each number 
+incremented by 1. Do not modify the original data structure.
+let arr = [{ a: 1 }, { b: 2, c: 3 }, { d: 4, e: 5, f: 6 }];`;
 print();
 print('ans');
 buffer = ` `;
 print();
 print('code');
-buffer = ` `;
+buffer = `let arr40 = [{ a: 1 }, { b: 2, c: 3 }, { d: 4, e: 5, f: 6 }];
+let modifiedArray = [];
+
+modifiedArray = arr40.map(element => {
+  let modifiedObject = {};
+  for (var prop in element) {
+    modifiedObject[prop] = element[prop] + 1;
+  }
+  return modifiedObject;
+}) ;
+console.log(modifiedArray);
+console.log(arr40);
+`;
 print();
+let arr40 = [{ a: 1 }, { b: 2, c: 3 }, { d: 4, e: 5, f: 6 }];
+let modifiedArray = [];
+
+modifiedArray = arr40.map(element => {
+  let modifiedObject = {};
+  for (var prop in element) {
+    modifiedObject[prop] = element[prop] + 1;
+  }
+  return modifiedObject;
+}) ;
 print('output');
+console.log(modifiedArray);
+console.log(arr40);
 qs += 1;
 ans += 1;
 print('end');
+*/
+
+// Qs. 12
+QS = `qs` + qs;
+print('qs');
+buffer = `Given the following data structure, use a combination of methods, 
+including filter, to return a new array identical in structure to the original, 
+but containing only the numbers that are multiples of 3.
+let arr = [[2], [3, 5, 7], [9], [11, 15, 18]];
+`;
+print();
+print('ans');
+buffer = ` `;
+print();
+print('code');
+buffer = `let arr50 = [[2], [3, 5, 7], [9], [11, 15, 18]];
+let arr50New = [];
+
+arr50New = arr50.filter(num => num % 3 === 0);
+
+console.log(arr50New);
+console.log(arr50);
+// => [ [], [ 3 ], [ 9 ], [ 15, 18 ] ]
+`;
+print();
+let arr50 = [[2], [3, 5, 7], [9], [11, 15, 18]];
+let arr50New = [];
+
+arr50New = arr50.map(element => {
+  return element.filter(num => num % 3 === 0);
+});
+
+print('output');
+console.log(arr50New);
+console.log(arr50);
+qs += 1;
+ans += 1;
+print('end');
+
+
 
 
 
