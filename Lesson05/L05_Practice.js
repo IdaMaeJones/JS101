@@ -459,7 +459,7 @@ qs += 1;
 ans += 1;
 print('end');
 
-
+/*
 // Qs. 10
 QS = `qs` + qs;
 print('qs');
@@ -590,36 +590,59 @@ print('end');
 // Qs. 13
 QS = `qs` + qs;
 print('qs');
-buffer = `Given the following data structure, use a combination of methods, 
-including filter, to return a new array identical in structure to the original, 
-but containing only the numbers that are multiples of 3.
-let arr = [[2], [3, 5, 7], [9], [11, 15, 18]];
+buffer = `Given the following data structure, sort the array so that the 
+sub-arrays are ordered based on the sum of the odd numbers that they contain.
+let arr = [[1, 6, 7], [1, 5, 3], [1, 8, 3]];
+Since 1 + 3 < 1 + 7 < 1 + 5 + 3, the sorted array should look like this:
+[ [ 1, 8, 3 ], [ 1, 6, 7 ], [ 1, 5, 3 ] ]
 `;
 print();
 print('ans');
-buffer = ` `;
-print();
-print('code');
-buffer = `let arr50 = [[2], [3, 5, 7], [9], [11, 15, 18]];
-let arr50New = [];
+buffer = `PEDAC
+Problem:
+  order sub-arrays based on sum of odd number elements in sub-array
+  input: array of arrays with numeric elements
+  output: reordered array of arrays
+  implicit: only two levels of arrays
 
-arr50New = arr50.filter(num => num % 3 === 0);
+Examples:
+  let arr = [[1, 6, 7], [1, 5, 3], [1, 8, 3]];
+  Since 1 + 3 < 1 + 7 < 1 + 5 + 3, the sorted array should look like this:
+  [ [ 1, 8, 3 ], [ 1, 6, 7 ], [ 1, 5, 3 ] ]
 
-console.log(arr50New);
-console.log(arr50);
-// => [ [], [ 3 ], [ 9 ], [ 15, 18 ] ]
+Data Structure:
+  array or arrays with numeric elements
+
+Algorithm:
+  for each element in array which is itself an array sum the odd elements
+  compare with previous element's sum - switch if less than previous sum
+  use arr.sort to do the sorting of the outer array
+
+Code:
+  
+
 `;
 print();
-let arr50 = [[2], [3, 5, 7], [9], [11, 15, 18]];
-let arr50New = [];
+print('code');
+buffer = ``;
+print();
+let arr60 = [[1, 6, 7], [1, 5, 3], [1, 8, 3]];
+// let arr60 = [[2, 6, 7], [2, 5, 4], [2, 8, 3]];
+let arr60New = [];
 
-arr50New = arr50.map(element => {
-  return element.filter(num => num % 3 === 0);
+arr60New = arr60.map(element => {
+  return element;
 });
 
+arr60New.sort( (a, b) => {
+  let oddSumA = a.filter(num => num % 2 === 1).reduce( (sum, next) => sum + next );
+  let oddSumB = b.filter(num => num % 2 === 1).reduce( (sum, next) => sum + next );
+  return oddSumA - oddSumB;
+}) ;
+
 print('output');
-console.log(arr50New);
-console.log(arr50);
+console.log(arr60New);
+console.log(arr60);
 qs += 1;
 ans += 1;
 print('end');
