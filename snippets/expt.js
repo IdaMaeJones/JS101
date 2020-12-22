@@ -1,3 +1,6 @@
+// Launch School
+// JS101, experimentation
+//
 const readline = require('readline-sync');
 const MESSAGES = require('./calculator_messages.json')
 
