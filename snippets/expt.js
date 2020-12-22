@@ -1,3 +1,6 @@
+const readline = require('readline-sync');
+const MESSAGES = require('./calculator_messages.json')
+
 // SETS
 /*
   INSTANTIATION:        let mySet = new Set();
