@@ -1,6 +1,6 @@
 // Launch School
 // JS 101 Small Problems
-// Easy 2
+// Easy 3
 var QS = '';
 //
 // COMMON DISPLAY CODE
@@ -336,12 +336,3 @@ print('end');
 
 // END
 /* ==== ==== ==== ==== */
-
-console.log(
-  greetings(["John", "Q.", "Doe"], { title: "Master", occupation: "Plumber" })
-);
-
-function greetings (name, status) {
-  return `Hello, ${name.join(" ")}! Nice to have a ${status["title"]} ${status["occupation"]}
-  `;
-}
