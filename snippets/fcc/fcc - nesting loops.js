@@ -8,9 +8,9 @@ function multiplyAll(arr) {
   for (var x = 0; x < arr.length; x++) {
     var subProduct = 1;
     for (var y = 0; y < arr[x].length; y++) {
-          subProduct *= arr[x][y];
-        }
-        product *= subProduct;
+      subProduct *= arr[x][y];
+    }
+    product *= subProduct;
   }
   // Only change code above this line
   return product;
